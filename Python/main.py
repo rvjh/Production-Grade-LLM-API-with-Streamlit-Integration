@@ -1,4 +1,22 @@
+import numpy
 
+# Input the dimensions n and m
+n, m = map(int, input().split())
+
+# Input array A
+A = numpy.array([list(map(int, input().split())) for _ in range(n)])
+
+# Input array B
+B = numpy.array([list(map(int, input().split())) for _ in range(n)])
+
+# Perform the operations
+print(A + B)       # Addition
+print(A - B)       # Subtraction
+print(A * B)       # Multiplication
+print(A // B)      # Integer Division
+print(A % B)       # Modulus
+print(A ** B)      # Power
+----------------------------------------------------
 
 import numpy
 numpy.set_printoptions(legacy='1.13')
