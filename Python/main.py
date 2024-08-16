@@ -1,4 +1,33 @@
- def merge_the_tools(string, k):
+
+import numpy as np
+
+n, m, p = map(int, input().split())
+
+# Create empty lists to store the input arrays
+arr1 = []
+arr2 = []
+
+# Read the first array
+for _ in range(n):
+    row = list(map(int, input().split()))
+    arr1.append(row)
+
+# Read the second array
+for _ in range(p):
+    row = list(map(int, input().split()))
+    arr2.append(row)
+
+# Convert lists to NumPy arrays
+arr1 = np.array(arr1)
+arr2 = np.array(arr2)
+
+# Concatenate the arrays
+concatenated_arr = np.concatenate((arr1, arr2), axis=0)
+
+# Print the concatenated array
+print(concatenated_arr)
+---------------------------------------------------------
+def merge_the_tools(string, k):
     for i in range(0, len(string), k):
         # Split the string into k-sized chunks
         chunk = string[i:i + k]
