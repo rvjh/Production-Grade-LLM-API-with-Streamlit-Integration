@@ -1,3 +1,19 @@
+
+---------------------------------------------------------
+import numpy
+
+numpy.set_printoptions(legacy='1.13')
+
+my_arr = list(map(float, input().split()))
+
+print(numpy.floor(my_arr))
+
+print(numpy.ceil(my_arr))
+
+print(numpy.rint(my_arr))
+
+# print(my_arr)
+----------------------------------------------
 import numpy
 
 # Input the dimensions n and m
