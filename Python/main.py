@@ -1,4 +1,20 @@
+import numpy
 
+n, m, p = map(int, input().split())
+
+a = numpy.zeros((n,m,p), dtype = int)
+b = numpy.ones((n,m,p), dtype = int)
+
+# c = numpy.concatenate((a, b))
+
+print(a)
+print(b)
+
+# print(numpy.ones((n,m)), dtype = numpy.int)
+
+
+
+-----------------------------------------------------
 import numpy as np
 
 n, m, p = map(int, input().split())
