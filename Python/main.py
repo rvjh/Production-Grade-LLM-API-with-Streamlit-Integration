@@ -65,3 +65,35 @@ print(d.add())
 print(d.sub())
 print(d.mul())
 print(d.div())
+
+--------------------------------------------
+
+import numpy
+
+
+n, m = map(int, input().split())
+
+# Create an empty list to store the input array
+arr = []
+
+# Read the input array
+for _ in range(n):
+    row = list(map(int, input().split()))
+    arr.append(row)
+
+# Convert the list to a NumPy array
+arr = numpy.array(arr)
+
+# Transpose the array
+transpose_arr = arr.T
+
+# Flatten the array
+flatten_arr = arr.flatten()
+
+# Print the transpose array
+print(transpose_arr)
+
+# Print the flatten array
+print(flatten_arr)
+
+-------------------------------------
