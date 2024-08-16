@@ -1,3 +1,22 @@
+
+
+import numpy
+numpy.set_printoptions(legacy='1.13')
+
+a, b = map(int, input().split())
+
+if a != b : 
+    pass
+else:
+    c = numpy.identity((a))
+    print(c)
+
+
+
+
+
+
+---------------------------------------------------
 import numpy
 
 n, m, p = map(int, input().split())
