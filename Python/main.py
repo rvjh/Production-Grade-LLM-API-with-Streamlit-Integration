@@ -1,4 +1,22 @@
+-------------------------------------------------------------------------
 
+def print_formatted(number):
+    # your code goes here
+    
+    for i in range(1, number+1):
+        decimal = i
+        octal = format(i,'o')
+        hexa = format(i,'X')
+        binary = format(i,'b')
+        
+        print(f"{decimal}  {octal}  {hexa}  {binary}")
+        
+        
+    
+
+if __name__ == '__main__':
+    n = int(input())
+    print_formatted(n)
 ---------------------------------------------------------
 import numpy
 
