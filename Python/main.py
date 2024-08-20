@@ -1,4 +1,13 @@
 
+-----------------------------------------------------------------------
+from itertools import product
+
+a = list(map(int, input().split()))
+b = list(map(int, input().split()))
+
+result = product(a, b)
+print(" ".join(f"({x}, {y})" for x, y in result))
+
 
 ------------------------------------------------------------------------
 # Enter your code here. Read input from STDIN. Print output to STDOUT
