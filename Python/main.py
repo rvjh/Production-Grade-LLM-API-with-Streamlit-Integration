@@ -1,3 +1,14 @@
+---------------------------------------------------------------------
+from itertools import combinations_with_replacement
+
+string = input("Enter the string: ")
+r = int(input("Enter the size of combinations: "))
+
+# Generate and print the combinations
+combinations = combinations_with_replacement(sorted(string), r)
+for combo in combinations:
+    print(''.join(combo))
+
 
 -----------------------------------------------------------------------
 from itertools import product
