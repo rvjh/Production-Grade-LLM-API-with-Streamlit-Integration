@@ -1,3 +1,22 @@
+
+
+------------------------------------------------------------------------
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+n = int(input())
+
+for _ in range(n):
+    try:
+        a, b = map(int, input().split())
+        if b == 0:
+            print("Error Code: integer division or modulo by zero")
+        else:
+            print(a//b)
+    except ValueError:
+        print("Error Code: invalid literal for int() with base 10: '{}'".format(input()))
+        
+    
+
 -------------------------------------------------------------------------
 
 def print_formatted(number):
