@@ -1,3 +1,13 @@
+
+------------------------------------------------------------------
+def s(l, m):
+  k = 0
+  for i in l:
+    if i == m:
+      k = k+1
+  return k
+
+s("rohandas","d")
 ---------------------------------------------------------------------
 from itertools import combinations_with_replacement
 
