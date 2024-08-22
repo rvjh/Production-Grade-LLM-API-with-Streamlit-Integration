@@ -1,4 +1,22 @@
 
+----------------------------
+def m(a):
+  l = [0,1]
+  if a==0:
+    return l[0]
+  elif a==1:
+    return l
+  else:
+    m = 0
+    n = 1
+    for i in range(2,a):
+      c = m+n
+      m = n
+      n = c
+      l.append(c)
+  return l
+  
+m(5)
 ------------------------------------------
 def m(s):
   d = dict()
