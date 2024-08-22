@@ -1,3 +1,14 @@
+
+----------------------------------------------
+def m(s):
+  l = ['a', 'e', 'i', 'o', 'u']
+  d = dict()
+  for i in s:
+    if i not in l:
+      d[i] = s.count(i)
+  return d
+
+m("programming")
 -------------------------------------------
 def m(s):
   d = dict()
