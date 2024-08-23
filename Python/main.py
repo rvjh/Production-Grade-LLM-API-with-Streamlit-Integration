@@ -1,5 +1,28 @@
 
 
+
+
+
+
+
+-----------------------------------------
+## Counting Special Characters
+
+def m(s):
+  a = re.sub("[\w]+","",s)
+  return len(a)
+
+m("!@#$%^&*()")
+------------------------------------------
+import re
+def m(s):
+  a = re.sub("[^0-9]","",s)
+  b = re.sub("[^a-zA-Z]","",s)
+  c = re.findall("[ \n]",s)
+
+  return len(a), len(b), len(c)
+
+m("I love programming")
 --------------------------------------
 s1 = "abc"
 s2 = "abc"
