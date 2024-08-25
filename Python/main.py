@@ -3,8 +3,26 @@
 
 
 
+-----------------------------------------------------------------------------
+class Solution:
+    def removeDuplicateLetters(self, s: str) -> str:
+        last_occurrence = {char: i for i, char in enumerate(s)}  # Track the 
+        seen = set()  # Keep track of characters already in the result
+        result = []  # Stack to build the result
+        
+        for i, char in enumerate(s):
+            if char not in seen:
+                # Ensure the result is in lexicographical order
+                while result and char < result[-1] and i < last_occurrence[result[-1]]:
+                    seen.remove(result.pop())
+                seen.add(char)
+                result.append(char)
+        
+        return "".join(result)
 
-
+        
+        
+        
 -----------------------------------------
 ## Counting Special Characters
 
