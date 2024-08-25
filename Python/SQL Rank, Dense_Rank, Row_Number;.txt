@@ -1,0 +1,41 @@
+show databases;
+use test1;
+create table stud_1 (
+	ID int,
+    DATE date,
+    SALES int
+)
+
+INSERT INTO stud_1 (ID, DATE, SALES) VALUES 
+(1, '2022-06-22', 603),
+(2, '2022-06-21', 473),
+(3, '2022-06-20', 679),
+(4, '2022-06-19', 443),
+(5, '2022-06-18', 940),
+(6, '2022-06-17', 748),
+(7, '2022-06-16', 479),
+(8, '2022-06-15', 604),
+(9, '2022-06-14', 400),
+(10, '2022-06-13', 403);
+
+select * from stud_1;
+
+-- Rank
+select *, rank() over(order by SALES desc) as R from stud_1;
+
+-- Dense rank
+select * , dense_rank() over(order by SALES desc) as D_R from stud_1;
+
+-- Row Number
+select *, row_number() over(order by SALES desc) as R_N from stud_1;
+
+-- containing everything
+
+select *, 
+rank() over(order by SALES desc) as Rank_,
+dense_rank() over(order by SALES desc) as Dens_Rank,
+row_number() over(order by SALES desc) as Row_n
+from stud_1;
+
+
+
