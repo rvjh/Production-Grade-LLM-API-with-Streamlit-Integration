@@ -1,5 +1,13 @@
 
 
+------------------------------
+def m():
+  a = input("Enter : ")
+  print(a.upper())
+  print(a.lower())
+
+
+m()
 ---------------------------------
 ## count of occuerences
 
