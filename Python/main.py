@@ -1,6 +1,13 @@
 
 
 
+-----------------------------------
+def m(s):
+  for i in range(len(s)):
+    if i%2==0:
+      print(s[i], end="")
+
+m("rohan")
 ---------------------------------
 def m(a, t):
   for i in range(len(a)):
