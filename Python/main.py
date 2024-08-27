@@ -1,5 +1,12 @@
 
 
+-------------------------------
+def m():
+  a = input("Enter : ")
+  b = a.split(",")
+  return ",".join(sorted(list(set(b))))
+
+m()
 ------------------------------
 def m():
   a = input("Enter : ")
