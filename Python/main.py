@@ -1,4 +1,9 @@
 
+-------------------------------------------------
+select user_id, stars
+from reviews
+where reviews.stars = 3;
+
 ---------------------------------------------------
 select EXTRACT(month from submit_date) as mth, product_id, ROUND(AVG(stars),2) as avg_stars
 from reviews
