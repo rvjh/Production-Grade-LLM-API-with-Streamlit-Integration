@@ -1,7 +1,8 @@
 
 
 
-
+----------------------------------------------------------------------------------
+select company, profits from forbes_global_2010_2014 order by profits desc limit 3;
 -------------------------------------
 import pandas as pd
 forbes_global_2010_2014.head()
