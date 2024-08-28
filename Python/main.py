@@ -1,4 +1,15 @@
 
+
+------------------------------------
+def m(s):
+  d = {}
+  c=0
+  for i in s:
+    d[i] = s.count(i)
+    c = c + 1
+  return d
+
+m("Rohan das")
 -------------------------------------
 def m(d):
   return max(d, key=d.get)
