@@ -1,4 +1,12 @@
 
+
+-------------------------------------------
+SELECT * FROM customers 
+WHERE
+customer_name LIKE 'F%'
+AND
+customer_name LIKE '%ck'
+LIMIT 20;
 ---------------------------------------------
 SELECT manufacturer,drug, units_sold
 FROM pharmacy_sales
