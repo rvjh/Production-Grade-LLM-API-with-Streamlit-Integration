@@ -1,5 +1,11 @@
 
 
+-----------------------------------------
+SELECT * FROM customers 
+WHERE
+customer_name LIKE '_ee%'
+LIMIT 20;
+
 -------------------------------------------
 SELECT * FROM customers 
 WHERE
