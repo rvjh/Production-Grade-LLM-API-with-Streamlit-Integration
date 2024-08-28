@@ -1,6 +1,7 @@
 
-
-
+-----------------------------------------------------------------------------
+select city, country, (population/NULLIF(area, 0)) as density 
+from cities_population;
 ----------------------------------------------------------------------------------
 select company, profits from forbes_global_2010_2014 order by profits desc limit 3;
 -------------------------------------
