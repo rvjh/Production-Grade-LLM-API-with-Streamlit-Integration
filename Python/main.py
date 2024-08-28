@@ -1,5 +1,9 @@
 
-
+---------------------------------------------------
+select EXTRACT(month from submit_date) as mth, product_id, ROUND(AVG(stars),2) as avg_stars
+from reviews
+GROUP BY EXTRACT(MONTH FROM submit_date), product_id
+ORDER BY EXTRACT(MONTH FROM submit_date) ASC
 --------------------------------
 def factorial(n):
   if n==0 or n == 1:
