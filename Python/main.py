@@ -1,4 +1,12 @@
 
+
+
+
+-------------------------------------
+import pandas as pd
+forbes_global_2010_2014.head()
+
+forbes_global_2010_2014.sort_values(by='profits', ascending=False).head(3)[['company','profits']]
 -------------------------------
 def m(l,t):
   for i in range(len(l)):
