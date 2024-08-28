@@ -1,4 +1,9 @@
 
+
+
+
+
+
 -----------------------------------------------------------------------------
 select city, country, (population/NULLIF(area, 0)) as density 
 from cities_population;
