@@ -1,4 +1,27 @@
 
+
+
+
+
+
+
+-------------------------------------------------------------
+from datetime import date
+
+class P:
+    def __init__(self, n, c, dob_year):
+        self.n = n
+        self.c = c
+        self.dob = date(dob_year, 1, 1)  # Assuming January 1st as the date of birth
+
+    def ag(self):
+        ag = date.today().year - self.dob.year
+        return self.n, self.c, ag
+
+# Example usage
+p = P("Rohan", "Male", 1999)
+print(p.ag())
+
 -----------------------------------------
 class C:
   def __init__(self,x,y):
