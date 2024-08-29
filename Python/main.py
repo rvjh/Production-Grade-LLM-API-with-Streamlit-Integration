@@ -3,8 +3,21 @@
 
 
 
+---------------------------------------------
+from math import pi
+class C:
+  def __init__(self, x):
+    self.x = x
 
+  def per(self):
+    return 2*pi*(self.x)
 
+  def ar(self):
+    return pi*(self.x**2)
+
+c = C(5)
+print(c.per())
+print(c.ar())
 -------------------------------------------------------------
 from datetime import date
 
