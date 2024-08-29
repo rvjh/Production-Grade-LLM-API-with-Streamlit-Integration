@@ -1,6 +1,12 @@
 
 
-
+-----------------------------------------
+def intersection(a, b):
+  l = []
+  for i in a:
+    if i in b:
+      l.append(i)
+  return l
 ------------------------------------------
 def fizz_buzz_sum(target):
   sum = 0
