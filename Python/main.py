@@ -13,8 +13,10 @@
 
 
 
-
-
+---------------------------------------------------
+SELECT candidate_id FROM candidates
+GROUP BY candidate_id
+HAVING COUNT(candidate_id) > 2;
 -------------------------------------------------------
 SELECT ticker, MIN(open) as min FROM stock_prices
 GROUP BY ticker
