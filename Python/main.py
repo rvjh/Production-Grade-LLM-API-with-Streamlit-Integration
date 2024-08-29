@@ -1,5 +1,12 @@
 
 
+--------------------------------------------
+def missing_int(input: list[int])-> int:
+    input.sort()
+    for i in range(len(input)):
+      if i != input[i]:
+        return i
+    return len(input)
 -----------------------------------------
 def intersection(a, b):
   l = []
