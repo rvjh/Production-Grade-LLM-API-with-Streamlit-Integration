@@ -2,8 +2,9 @@
 
 
 
-
-
+---------------------------------------------
+SELECT MAX(open) FROM stock_prices
+WHERE ticker = 'NFLX' ;
 -----------------------------------------------
 SELECT MIN(open) FROM stock_prices
 WHERE ticker = 'MSFT' ;
