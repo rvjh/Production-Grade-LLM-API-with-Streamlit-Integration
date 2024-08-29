@@ -1,5 +1,12 @@
 
 
+
+
+
+
+-----------------------------------------------
+SELECT MIN(open) FROM stock_prices
+WHERE ticker = 'MSFT' ;
 ------------------------------------------------
 SELECT AVG(open) FROM stock_prices
 WHERE ticker =  'GOOG';
