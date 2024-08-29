@@ -7,8 +7,11 @@
 
 
 
-
-
+----------------------------------------------------
+SELECT card_name, (MAX(issued_amount) - MIN(issued_amount)) as difference
+FROM monthly_cards_issued
+GROUP BY card_name
+ORDER BY difference DESC;
 ------------------------------------------------
 SELECT drug,(total_sales - cogs)  as total_profit  FROM pharmacy_sales
 ORDER BY total_profit DESC LIMIT 3;
