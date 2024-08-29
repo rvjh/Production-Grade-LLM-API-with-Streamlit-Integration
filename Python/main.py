@@ -1,5 +1,10 @@
 
 
+
+
+
+--------------------------------------------
+SELECT COUNT(*) FROM pharmacy_sales;
 --------------------------------------------
 def missing_int(input: list[int])-> int:
     input.sort()
