@@ -1,8 +1,9 @@
 
 
 
-
-
+------------------------------------------------------------
+SELECT COUNT(*), SUM(total_sales) FROM pharmacy_sales
+WHERE manufacturer = 'Pfizer';
 --------------------------------------------
 SELECT COUNT(*) FROM pharmacy_sales;
 --------------------------------------------
