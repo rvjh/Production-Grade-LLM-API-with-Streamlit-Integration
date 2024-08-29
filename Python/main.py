@@ -15,8 +15,10 @@
 
 
 
-
-
+-------------------------------------------------------
+SELECT ticker, MIN(open) as min FROM stock_prices
+GROUP BY ticker
+HAVING MIN(open) > 100;
 -------------------------------------------------------
 SELECT skill, COUNT(candidate_id) as count FROM candidates
 GROUP BY skill
