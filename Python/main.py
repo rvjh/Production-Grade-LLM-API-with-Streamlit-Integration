@@ -1,7 +1,9 @@
 
 
-
-
+-----------------------------------------------------
+SELECT ticker, MIN(open) as min FROM stock_prices
+GROUP BY ticker
+ORDER BY min DESC
 ---------------------------------------------
 SELECT MAX(open) FROM stock_prices
 WHERE ticker = 'NFLX' ;
