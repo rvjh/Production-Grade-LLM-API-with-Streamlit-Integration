@@ -1,6 +1,8 @@
 
 
-
+------------------------------------------------
+SELECT AVG(open) FROM stock_prices
+WHERE ticker =  'GOOG';
 ------------------------------------------------------------
 SELECT COUNT(*), SUM(total_sales) FROM pharmacy_sales
 WHERE manufacturer = 'Pfizer';
