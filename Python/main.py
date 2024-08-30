@@ -6,7 +6,11 @@
 
 
 
-
+----------------------------------------------------
+SELECT ticker, COUNT(ticker) FROM stock_prices
+WHERE ((close - open)/open > 0.1) OR ((close - open)/open < -0.1)
+GROUP BY ticker
+ORDER BY count DESC;
 ----------------------------------------------------
 SELECT card_name, (MAX(issued_amount) - MIN(issued_amount)) as difference
 FROM monthly_cards_issued
