@@ -2,6 +2,23 @@
 
 
 
+
+
+
+
+
+-------------------------------------
+def m(s):
+  u = 0
+  l = 0
+  for i in s:
+    if i.isupper():
+      u = u +1
+    elif i.islower():
+      l = l +1
+  return u,l
+
+m("The quick Brow Fox")
 --------------------------------------
 def m(n):
   if (n == 0) or (n==1):
