@@ -3,8 +3,9 @@
 
 
 
-
-
+-----------------------------------------------
+SELECT part, assembly_step FROM parts_assembly
+WHERE finish_date is NULL;
 --------------------------------------------------
 SELECT  drug, CEIL(total_sales/ units_sold) as unit_cost
 FROM pharmacy_sales
