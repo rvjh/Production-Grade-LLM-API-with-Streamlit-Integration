@@ -5,6 +5,13 @@
 
 
 
+----------------------------------------------------
+select 
+emails.user_id
+FROM emails JOIN texts
+ON emails.email_id = texts.email_id
+WHERE texts.action_date = emails.signup_date + INTERVAl '1 day'
+AND texts.signup_action = 'Confirmed'
 ---------------------------------------------------------
 SELECT
 user_id,
