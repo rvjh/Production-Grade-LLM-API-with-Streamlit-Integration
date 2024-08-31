@@ -5,6 +5,10 @@
 
 
 
+-----------------------------------
+SELECT * FROM 
+trades JOIN users
+ON users.user_id = trades.user_id;
 ----------------------------------
 SELECT
 SUM(CASE WHEN device_type = 'laptop' THEN 1 ELSE 0 END) AS laptop_views,
