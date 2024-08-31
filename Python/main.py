@@ -4,6 +4,15 @@
 
 
 
+
+------------------------------
+def m(x):
+  print("Double", x*2)
+  print("Triple", x*3)
+
+a = lambda x:m(x)
+
+a(10)
 ---------------------------------
 def m(x,y):
   return x*y
