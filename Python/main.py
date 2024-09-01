@@ -1,5 +1,14 @@
 
 
+
+
+
+
+------------------------------------------
+def m(l):
+  return list(map(lambda x: True if len(x)==6 else False, l))
+
+m(["rohana","rohandaaas","gagan"])
 -------------------------------------------
 def m(l):
   a = 0
