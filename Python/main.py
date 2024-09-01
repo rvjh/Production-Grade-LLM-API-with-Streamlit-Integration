@@ -5,6 +5,17 @@
 
 
 
+----------------------------------------------
+SELECT
+  artist_name,
+  concert_revenue,
+  genre,
+  number_of_members,
+  concert_revenue / number_of_members AS revenue_per_member,
+  RANK() OVER (
+    PARTITION BY genre
+    ORDER BY concert_revenue / number_of_members DESC) AS ranked_concerts
+FROM concerts;
 --------------------------------------------------
 select user_id,
 MAX(post_date:: DATE) - MIN(post_date:: DATE) AS days_between
