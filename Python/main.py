@@ -1,7 +1,35 @@
 
 
+-------------------------------------------
+def m(l):
+  a = 0
+  b = 0
+  for i in l:
+    if i%2==0:
+      a = a + 1
+    else:
+      b = b+ 1
+  return a,b
 
+m([1,2,3,4,5,6,7,8,9])
+-------------------------------------------
+def m(n):
+  l = [0,1]
+  if n == 1:
+    return l[0]
+  elif n == 2:
+    return l
+  else:
+    a = 0
+    b = 1
+    for i in range(2,n):
+      c = a + b
+      a = b
+      b = c
+      l.append(c)
+  return l
 
+m(10)
 ------------------------------------
 def m(s):
   print(lambda s : True if s.startswith("A") else False)
