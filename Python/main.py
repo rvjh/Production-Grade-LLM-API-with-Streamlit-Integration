@@ -2,6 +2,11 @@
 
 
 
+------------------------------------
+def m(s):
+  print(lambda s : True if s.startswith("A") else False)
+
+m("Abinash")
 ---------------------------------------
 def m(l):
   return list(map(lambda x : x ** 2, l)), list(map(lambda x:x**3, l))
