@@ -2,7 +2,11 @@
 
 
 
+---------------------------------------
+def m(l):
+  return list(map(lambda x : x ** 2, l)), list(map(lambda x:x**3, l))
 
+m([1,2,3,4])
 -------------------------------------------
 WITH order_counts AS (
   SELECT COUNT(order_id) AS total_orders 
