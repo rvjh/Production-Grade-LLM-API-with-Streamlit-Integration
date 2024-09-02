@@ -3,6 +3,11 @@
 
 
 
+-------------------------------
+def m(a,b):
+  return list(map(lambda x,y: x+y, a,b)), list(map(lambda x,y: x-y, a,b))
+
+m([1,2,3,4,5],[2,1,2,3,5])
 ----------------------------------
 def m(l):
   return list(map(lambda x: x**2, l))
