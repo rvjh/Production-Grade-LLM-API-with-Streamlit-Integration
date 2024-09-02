@@ -4,6 +4,11 @@
 
 
 
+----------------------------------
+def m(l):
+  return list(map(lambda x: x+3, l))
+
+m([1,2,3,4,5])
 --------------------------------------
 def m(l):
   return list(map(lambda x:x**3, l))
