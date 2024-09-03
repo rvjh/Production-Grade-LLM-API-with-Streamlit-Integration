@@ -10,7 +10,11 @@
 
 
 
+------------------------------------------------
+def m(s):
+  return list(filter(lambda x: x.isupper(), s))
 
+m("ROhANdAs")
 -----------------------------------------------------
 def m(l):
   return list(filter(lambda x: x%2==0,l))
