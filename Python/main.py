@@ -11,6 +11,21 @@
 
 
 
+-----------------------------------------------------------------
+class Solution:
+    def removeDuplicateLetters(self, s: str) -> str:
+        # Convert the string into a list of characters
+        l = [i for i in s]
+        
+        # Use a set to remove duplicate characters
+        m = set(l)
+        
+        # Sort the set to get the characters in lexicographical order
+        a = sorted(m)
+        
+        # Join the sorted characters into a single string
+        return "".join(a)
+
 -------------------------------------------------------------
 WITH ranked_measurements AS (
   SELECT 
