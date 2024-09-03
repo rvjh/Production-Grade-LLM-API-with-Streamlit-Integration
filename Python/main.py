@@ -9,7 +9,11 @@
 
 
 
+---------------------------------------------
+def m(l):
+  return list(filter(lambda x:x<10, l))
 
+m([10,2,5,23,4,3,6])
 ------------------------------------------------
 def m(s):
   return list(filter(lambda x: x.isupper(), s))
