@@ -8,7 +8,12 @@
 
 
 
+-------------------------------------------
+def m(s):
+  return list(filter(lambda x: x.startswith(("A","E","I","O","U")), s))
 
+
+m(["Aiui","iuwfg","Qreu"])
 ---------------------------------------------
 def m(l):
   return list(filter(lambda x:x<10, l))
