@@ -7,6 +7,31 @@
 
 
 
+-----------------------------------------------------------------
+def m(n):
+  a = [] ## for returning the list as a input array
+  n.sort()   ## sorting the array
+
+  for i, b in enumerate(n):    ## index and value
+    if i > 0 and b == n[i-1]:                  ## not first index and a not repeated
+      continue
+    ## two pointers
+    l, r = i+1, len(n)-1
+    while l<r:
+      threeSum = b + n[l] + n[r]
+      if threeSum > 0:
+        r -= 1
+      elif threeSum <0:
+        l += 1
+      else:
+        a.append([b,n[l],n[r]])
+        l += 1
+        while l<r and n[l] == n[l-1]:
+          l += 1
+  return a
+
+
+m([-1,0,1,2,-1,-4])
 
 --------------------------------------
 def m(s):
