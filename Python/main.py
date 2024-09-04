@@ -8,7 +8,7 @@
 
 
 -----------------------------------------
-def anagram(s,t):
+def palindrome(s,t):
   if len(s) != len(t):
     return False
   else:
@@ -17,7 +17,7 @@ def anagram(s,t):
     else:
       return False
 
-anagram("rohan","nahor")
+palindrome("rohan","nahor")
 -----------------------------------------------
 ## permutation & combination
 
