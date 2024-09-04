@@ -9,7 +9,16 @@
 
 
 
+------------------------------------------
+## two sum
 
+def m(l,x):
+  for i in range(len(l)):
+    for j in range(i+1, len(l)):
+      if l[i] + l[j] == x:
+        return i,j
+
+m([1,2,3,4,5],9)
 ------------------------------------------
 SELECT 
   emp.employee_id AS employee_id,
