@@ -7,6 +7,17 @@
 
 
 
+-----------------------------------------
+def anagram(s,t):
+  if len(s) != len(t):
+    return False
+  else:
+    if s == t[::-1]:
+      return True
+    else:
+      return False
+
+anagram("rohan","nahor")
 -----------------------------------------------
 ## permutation & combination
 
