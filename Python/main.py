@@ -8,7 +8,16 @@
 
 
 
+--------------------------------------
+def m(s):
+  d = {}
+  c = 0
+  for i in s:
+    d[i] = s.count(i)
+    c = c + 1
+  return d
 
+m("rohandas")
 ---------------------------------------------------------------------
 ## 3 sum i.e a + b + c =0 in a array of n integers incluing -ve
 
