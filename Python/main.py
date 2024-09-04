@@ -9,6 +9,17 @@
 
 
 
+---------------------------------------------------------------------
+## 3 sum i.e a + b + c =0 in a array of n integers incluing -ve
+
+def m(l,x):
+  for i in range(len(l)):
+    for j in range(i+1, len(l)):
+      for k in range(j+1, len(l)):
+        if l[i] + l[j] + l[k] == x:
+          return i,j,k
+
+m([-1,0,1,2,-1,-4],0)
 ------------------------------------------
 ## two sum
 
