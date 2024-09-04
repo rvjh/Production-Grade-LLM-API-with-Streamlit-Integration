@@ -7,6 +7,14 @@
 
 
 
+---------------------------------------------
+def f(n):
+  if n == 0 or n==1:
+    return 1
+  else:
+    return n*f(n-1)
+
+f(5)
 -----------------------------------------------------------------
 def m(n):
   a = [] ## for returning the list as a input array
