@@ -7,6 +7,30 @@
 
 
 
+-----------------------------------------------
+## permutation & combination
+
+def f(n):
+  if n == 0 or n==1:
+    return 1
+  else:
+    return n*f(n-1)
+
+def p(n,r):
+  if n<r:
+    return 0
+  else:
+    return f(n)/f(n-r)
+
+def c(n,r):
+  if n<r:
+    return 0
+  else:
+    return f(n)/(f(r)*f(n-r))
+
+
+print("Permutation : ",p(5,3))
+print("Combination : ",c(5,3))
 ---------------------------------------------
 def f(n):
   if n == 0 or n==1:
