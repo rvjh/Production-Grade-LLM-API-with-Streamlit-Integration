@@ -7,6 +7,27 @@
 
 
 
+
+---------------------------------------------
+def anagram(s,t):
+  if len(s) != len(t):
+    return False
+  else:
+    l = list(s)
+    m = list(t)
+    l.sort()
+    m.sort()
+    p = 0
+    match = True
+    while p < len(l) and match:
+      if l[p] == m[p]:
+        p = p + 1
+      else:
+        match = False
+    return False 
+
+anagram("rohan","nahor")
+
 -----------------------------------------
 def palindrome(s,t):
   if len(s) != len(t):
