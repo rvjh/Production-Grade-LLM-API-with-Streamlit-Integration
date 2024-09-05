@@ -8,6 +8,14 @@
 
 
 
+----------------------------------------
+def twoSum(l,x):
+  for i in range(len(l)):
+    for j in range(i+1, len(l)):
+      if l[i] + l[j] == x:
+        return i,j
+
+twoSum([1,2,3,4,5],9)
 ---------------------------------------------
 def anagram(s,t):
   if len(s) != len(t):
