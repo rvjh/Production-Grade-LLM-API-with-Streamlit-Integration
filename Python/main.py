@@ -7,6 +7,20 @@
 
 
 
+----------------------------------
+def m(a,x):
+  l, r = 0, len(a)-1
+  while l<r:
+    s = a[l] + a[r]
+    if s > x:
+      r-=1
+    elif s<x :
+      l += 1
+    else:
+      return [l, r]
+
+m([1,2,3,4,5],9)
+
 -------------------------------------
 def twosum(l,x):
   hasmap = {}   # value : index
