@@ -7,7 +7,17 @@
 
 
 
+-------------------------------------
+def twosum(l,x):
+  hasmap = {}   # value : index
+  for i, n in enumerate(l):
+    diff = x - n
+    if diff in hasmap:
+      return [hasmap[diff],i]
+    hasmap[n] = i
+  return 
 
+twosum([1,2,3,4,5],9)
 ----------------------------------------
 def twoSum(l,x):
   for i in range(len(l)):
