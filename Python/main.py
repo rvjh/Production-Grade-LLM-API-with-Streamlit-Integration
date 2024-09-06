@@ -7,6 +7,17 @@
 
 
 
+-------------------------------
+def m(a,b):
+  if len(a) != len(b):
+    return False
+  else:
+    if a == b[::-1]:
+      return True
+    else:
+      return False
+
+m("aba","abc")
 --------------------------------
 def m(s):
   return s[::-1]
