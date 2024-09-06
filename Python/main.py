@@ -6,7 +6,27 @@
 
 
 
+--------------------------------
+def m(x):
+  if x == 0 or x ==1:
+    return 1
+  else:
+    return x*m(x-1)
 
+def per(n,r):
+  if n<r :
+    return 0
+  else:
+    return m(n)/m(n-r)
+
+def com(n,r):
+  if n<r:
+    return 0
+  else:
+    return m(n)/(m(r)*m(n-r))
+
+print("Permutation : ",per(5,3))
+print("Combination : ",com(5,3))
 ------------------------------
 def m(a):
   if a==0 or a==1:
