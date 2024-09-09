@@ -6,7 +6,16 @@
 
 
 
+def m(l):
+  d = {}
+  for i in l:
+    d[i] = len(i)
+  a = max(d.values())
+  for i,j in d.items():
+    if j == a:
+      return i,j
 
+m(["rohan","das","suchitra"])
 -------------------------------------
 def m(s):
   return s.replace('a','#')
