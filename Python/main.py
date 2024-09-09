@@ -7,6 +7,16 @@
 
 
 
+-----------------------------------------
+def m(s):
+  c = 0
+  d = {}
+  for i in s:
+    d[i] = s.count(i)
+    c += 1
+  return d
+
+m("whfowehfwfhpwejhpwpq")
 
 -------------------------------------
 def m(a,b):
