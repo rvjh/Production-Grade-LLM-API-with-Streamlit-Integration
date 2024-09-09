@@ -6,6 +6,13 @@
 
 
 
+--------------------------------------
+def m(s,k):
+  for i in s:
+    c = s.count(k)
+  return c
+
+m("rohandas",'a')
 -------------------------
 a = lambda x:x**3
 
