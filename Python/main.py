@@ -8,7 +8,28 @@
 
 
 
+------------------------------------------------------------
+def f(x):
+  if x == 0 or x==1:
+    return 1
+  else:
+    return x*f(x-1)
 
+
+def per(n,r):
+  if r>n:
+    return 0
+  else:
+    return f(n)/f(n-r)
+
+def com(n,r):
+  if r>n:
+    return 0
+  else:
+    return f(n)/(f(r)*f(n-r))
+
+print(per(5,2))
+print(com(5,2))
 -------------------------------------------
 def m(a):
   if a == 0 or a==1:
