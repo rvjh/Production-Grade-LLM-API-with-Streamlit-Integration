@@ -3,6 +3,31 @@
 
 
 
+
+
+
+
+
+
+
+-------------------------------------
+def fibo(n):
+  l = [0,1]
+  if n==0:
+    return 0
+  elif n==1:
+    return l
+  else:
+    a = 0
+    b=1
+    for i in range(2,n):
+      c = a + b
+      a = b
+      b = c
+      l.append(c)
+  return l
+
+fibo(10)
 ---------------------------------------
 def f(x):
   if x==0 or x==1:
