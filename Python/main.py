@@ -4,6 +4,24 @@
 
 
 
+-----------------------------------
+def m(n):
+  l = [0,1]
+  if n==1:
+    return 0
+  elif n==2:
+    return l
+  else:
+    a=0
+    b=1
+    for i in range(2,n):
+      c = a + b
+      a = b
+      b = c
+      l.append(c)
+  return l
+
+m(10)
 ------------------------------
 def m(s):
   d = {}
