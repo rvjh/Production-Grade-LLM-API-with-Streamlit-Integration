@@ -5,8 +5,23 @@
 
 
 
+---------------------------------
+def m(n):
+  if n==0 or n==1:
+    return 1
+  else:
+    return n*m(n-1)
 
+def per(n,r):
+  if n>r:
+    return m(n)/m(n-r)
 
+def com(n,r):
+  if n>r:
+    return m(n)/(m(r)*m(n-r))
+
+print(per(6,2))
+print(com(6,2))
 ---------------------------
 def m(n):
   if n==0 or n==1:
