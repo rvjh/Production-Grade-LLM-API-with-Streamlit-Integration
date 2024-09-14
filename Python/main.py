@@ -4,7 +4,16 @@
 
 
 
+------------------------------
+def m(s):
+  d = {}
+  c = 0
+  for i in s:
+    d[i] = s.count(i)
+    c=c+1
+  return d
 
+m("rohsqkqqqoqyc")
 ---------------------------------
 def m(n):
   if n==0 or n==1:
