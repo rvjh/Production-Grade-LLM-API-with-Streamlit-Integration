@@ -9,6 +9,28 @@
 
 
 
+
+
+
+----------------------------------------------------------
+def m(n):
+  l = [0,1]
+  if n==0:
+    return l[0]
+  elif n==1:
+    return l
+  else:
+    a=l[0]
+    b=l[1]
+    for i in range(2,n):
+      c = a + b
+      l.append(c)
+      a = b
+      b = c
+  return l
+
+m(10)
+--------------------------------------------------------------------
 my_list = [10, 10.5, 20, 30, 'Python', 'Java', 'Ruby']
 
 my_slice = my_list[3:6]
