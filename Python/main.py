@@ -22,8 +22,17 @@
 
 
 
+-----------------------------------------------------
+def per(n,r):
+  if n>r:
+    return m(n)/m(n-r)
 
+def com(n,r):
+  if n>r:
+    return m(n)/(m(r)*m(n-r))
 
+print(per(6,2))
+print(com(6,2))
 --------------------------------------
 def m(x):
   if x==0 or x==1:
