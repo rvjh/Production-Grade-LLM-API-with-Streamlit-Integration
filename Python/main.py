@@ -12,6 +12,11 @@
 
 
 
+--------------------------------------------------------
+def m(s):
+  return s[::-1]
+
+m("wjhhohco3hof08u342")
 ------------------------------------------------------------
 my_tup = ("Romania", "Poland", "Estonia", "Bulgaria", "Slovakia", "Slovenia", "Hungary")
 
