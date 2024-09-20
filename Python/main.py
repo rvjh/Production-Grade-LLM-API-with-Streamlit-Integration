@@ -10,8 +10,12 @@
 
 
 
+------------------------------------------------------------------------
+my_tup = ("Romania", "Poland", "Estonia", "Bulgaria", "Slovakia", "Slovenia", "Hungary")
 
+my_slice = my_tup[2:]
 
+print(my_slice)
 ----------------------------------------------------------
 my_tup = ("Romania", "Poland", "Estonia", "Bulgaria", "Slovakia", "Slovenia", "Estonia", "Romania", "Hungary", "Slovenia")
 
