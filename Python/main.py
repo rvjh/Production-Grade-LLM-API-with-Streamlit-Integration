@@ -13,6 +13,16 @@
 
 
 
+
+
+-------------------------------------------------------
+def m(a,b):
+  if len(a) == len(b) and a[::-1]==b[::-1]:
+    return "Anagram"
+  else:
+    return "Not Anagram"
+
+m("listen","silent")
 ------------------------------------------------------
 def m(l,x):
   for i in range(len(l)):
