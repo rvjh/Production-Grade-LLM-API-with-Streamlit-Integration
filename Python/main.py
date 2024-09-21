@@ -6,6 +6,14 @@
 
 
 
+
+
+----------------------------------
+crypto = {1: "Bitcoin", 2: "Ethereum", 3: "Litecoin", 4: "Stellar", 5: "XRP"}
+
+crypto.update({4:'Cardano'})
+
+print(crypto[4])
 ----------
 crypto = {1: "Bitcoin", 2: "Ethereum", 3: "Litecoin", 4: "Stellar", 5: "XRP"}
 
