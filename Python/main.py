@@ -7,6 +7,11 @@
 
 
 
+------------------------
+def m(s):
+  return s[::-1]
+
+m("we2hou8320")
 ------------------------------
 crypto = {1: "Bitcoin", 2: "Ethereum", 3: "Litecoin", 4: "Stellar", 5: "XRP"}
 
