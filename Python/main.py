@@ -8,6 +8,14 @@
 
 
 
+--------------------------------------------
+def m(l,x):
+  for i in range(len(l)):
+    for j in range(i+1, len(l)):
+      if l[i]+l[j]==x:
+        return i,j
+
+m([1,2,3,4,5,6,7,8],13)
 -------------------------------
 def m(a,b):
   if len(a)==len(b) and a[::-1]==b[::-1]:
