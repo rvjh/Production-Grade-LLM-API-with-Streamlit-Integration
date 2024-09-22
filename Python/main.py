@@ -16,8 +16,166 @@
 
 
 
+----------------------------------------------------------
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
 
 
+class LinkedList:
+    def __init__(self, value):
+        new_node = Node(value)
+        self.head = new_node
+        self.tail = new_node
+        self.length = 1
+
+    def print_list(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
+
+    def append(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+        self.length += 1
+        return True
+
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+        return True
+
+    def pop(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        pre = self.head
+        while temp.next:
+            pre = temp
+            temp = temp.next
+        self.tail = pre
+        self.tail.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        return temp.value
+
+    def pop_first(self):
+        if self.length == 0:
+            return None
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        return temp.value
+
+    def get_index(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp  # Return the node itself instead of just its value
+
+    def set_value(self, index, value):
+        temp = self.get_index(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        new_node = Node(value)
+        prev = self.get_index(index - 1)
+        new_node.next = prev.next
+        prev.next = new_node
+        self.length += 1
+        return True
+
+    def remove_item(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length - 1:
+            return self.pop()
+        prev = self.get_index(index - 1)  # Use get_index to retrieve the previous node
+        temp = prev.next
+        prev.next = temp.next
+        temp.next = None
+        self.length -= 1
+        return temp.value
+    
+    def reverse_list(self):
+      if self.length == 0:
+        return None
+      temp = self.head
+      self.head = self.tail
+      self.tail = temp
+      after = temp.next
+      before = None
+      for _ in range(self.length):
+        after = temp.next
+        temp.next = before
+        before = temp
+        temp = after
+      return True
+
+
+
+# Test the LinkedList
+l1 = LinkedList(1)
+l1.append(2)
+l1.append(3)
+l1.append(4)
+l1.append('rohan')
+l1.append('das')
+l1.prepend(0)
+l1.print_list()
+print("After pop:")
+l1.pop()
+l1.print_list()
+print("After prepend:")
+l1.prepend(9)
+l1.print_list()
+print("After pop_first:")
+l1.pop_first()
+l1.print_list()
+print(f"Get index 3: {l1.get_index(3).value}")  # Use .value to get the value of the node
+l1.set_value(3, 'uttam')
+print("After set_value at index 3:")
+l1.print_list()
+l1.insert(3, 'suchitra')
+print("After insert at index 3:")
+l1.print_list()
+l1.remove_item(5)
+print("After remove_item at index 5:")
+l1.print_list()
+print("After reverse_list:")
+l1.reverse_list()
+l1.print_list()
 ---------------------------------
 value = '0xa'
 
