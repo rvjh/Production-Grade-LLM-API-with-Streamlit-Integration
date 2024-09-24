@@ -2,7 +2,62 @@
 
 
 
+-------------------------------------------
+## Queue
 
+class Node:
+  def __init__(self,value):
+    self.value = value
+    self.next = None
+
+class Queue:
+  def __init__(self,value):
+    new_node = Node(value)
+    self.first = new_node
+    self.last = new_node
+    self.length = 1
+
+  def print_queue(self):
+    temp = self.first
+    while temp is not None:
+      print(temp.value)
+      temp = temp.next
+
+  def en_queue(self,value):
+    if self.length == 0:
+      return None
+    else:
+      new_node = Node(value)
+      self.last.next = new_node
+      self.last = new_node
+      self.length += 1
+      return True
+
+  def de_queue(self):
+    if self.length == 0:
+      return None
+    else:
+      temp = self.first
+      self.first = self.first.next
+      temp.next = None
+      self.length -= 1
+      if self.length == 0:
+        self.last = None
+      return temp.value
+
+
+q1 = Queue(1)
+q1.en_queue(2)
+q1.en_queue(3)
+q1.en_queue(4)
+q1.en_queue(5)
+q1.en_queue(6)
+q1.en_queue(7)
+q1.en_queue(8)
+q1.en_queue(9)
+q1.en_queue(10)
+
+q1.print_queue()
 
 -------------------------------
 # Stack implementation
