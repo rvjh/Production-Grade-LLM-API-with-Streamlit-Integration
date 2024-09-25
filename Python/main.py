@@ -7,6 +7,14 @@
 
 
 
+
+
+--------------------------------------------
+import pandas as pd
+
+def dropMissingData(students: pd.DataFrame) -> pd.DataFrame:
+    students = students.dropna()
+    return students
 -----------------------------------------
 import pandas as pd
 
