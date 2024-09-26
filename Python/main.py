@@ -12,7 +12,13 @@
 
 
 
+--------------------------------------------------
+import pandas as pd
 
+def pivotTable(weather: pd.DataFrame) -> pd.DataFrame:
+# Reset the index if you want to have 'month' as a regular column
+    ans = weather.pivot(index='month', columns='city',values='temperature')
+    return ans
 ------------------------------------------------
 import pandas as pd
 
