@@ -13,7 +13,7 @@ def m(l1,l2):
   for j in l2:
     if j in d:
       return j
-    return None
+  return None
 
 m([1,3,5],[2,4,5])
 -----------------------------------------------
