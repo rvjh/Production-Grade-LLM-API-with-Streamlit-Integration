@@ -32,8 +32,10 @@ def merge_sort(l):
     right = l[mid:]
     return merge(merge_sort(left),merge_sort(right))
 
-merge_sort([3,1,5,7,2,4,6,8])
----------------------------------------------------
+oiginal_list = [3,1,5,7,2,4,6,8]
+print(f"Original list : {oiginal_list}")
+print("Sorted list : ",merge_sort(oiginal_list))
+-------------------------------
 def merge(l1,l2):
   combined = []
   i,j = 0,0
