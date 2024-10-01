@@ -3,6 +3,13 @@
 
 
 
+
+
+-----------------------------------
+def m(s):
+  return s[::-1]
+
+m("jkenveo")
 ---------------------------------------------------
 def swap(my_list, index1, index2):
   temp = my_list[index1]
