@@ -7,6 +7,18 @@
 
 
 
+
+-------------------------------------
+def per(n,r):
+  if n>r:
+    return f(n)/f(n-r)
+
+def com(n,r):
+  if n>r:
+    return f(n)/(f(r)*f(n-r))
+
+print(per(10,5))
+print(com(10,5))
 --------------------------------------
 def f(n):
   if n==0 or n==1:
