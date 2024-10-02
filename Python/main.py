@@ -4,7 +4,17 @@
 
 
 
+-----------------------------------
+l1 = [1,2,3,4,5]
+l2 = [2,4,6,8]
 
+a = set(l1).union(set(l2))
+b = set(l1).intersection(set(l2))
+c = a - b
+
+print(a)
+print(b)
+print(c)
 ------------------------
 def m(l1,l2):
   d = {}
