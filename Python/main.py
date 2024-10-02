@@ -3,6 +3,17 @@
 
 
 
+------------------------
+def per(n,r):
+  if n>r:
+    return f(n)/f(n-r)
+
+def com(n,r):
+  if n>r:
+    return f(n)/(f(r)*f(n-r))
+
+print(per(5,2))
+print(com(5,2))
 ----------------------
 def m(a):
   return a**2
