@@ -6,6 +6,15 @@
 
 
 
+
+---------------------------------------
+def m(a,b):
+  if len(a)==len(b) and a[::-1]==b[::-1]:
+    return "True"
+  else:
+    return "False"
+
+m("racecar","racecar")
 -----------------------------
 def m(a):
   return a**2
