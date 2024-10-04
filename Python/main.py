@@ -1,6 +1,19 @@
 
 
 
+
+
+-----------------------------
+def m(l1, l2):
+  d = {}
+  for i in l1:
+    d[i] = True
+  for j in l2:
+    if j in d:
+      return j
+  return None
+
+m([1,2,3],[3,4,5])
 ------------------------------
 def f(n):
   if n==0 or n==1:
