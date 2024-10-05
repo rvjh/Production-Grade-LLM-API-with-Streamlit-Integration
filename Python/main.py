@@ -3,6 +3,9 @@
 
 
 -------------------------
+s = "kljcnkwjkconc jwnconwo"
+s[::2]
+-------------------------
 def m(l,x):
   for i in range(len(l)):
     for j in range(i+1, len(l)):
