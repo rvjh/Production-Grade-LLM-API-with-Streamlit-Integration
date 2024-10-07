@@ -2,6 +2,12 @@
 
 
 
+
+-----------------------------
+def m(s):
+  return s[::-1]
+
+m("dmndlwencecm")
 -------------------------
 s = "kljcnkwjkconc jwnconwo"
 s[::2]
