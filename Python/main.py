@@ -3,8 +3,23 @@
 
 
 
+------------------------------------------------
+def f(n):
+  if n==0 or n==1:
+    return 1
+  else:
+    return n*f(n-1)
 
+def per(n,r):
+  if n>r:
+    return f(n)/f(n-r)
 
+def com(n,r):
+  if n>r:
+    return f(n)/(f(r)*f(n-r))
+
+print(per(5,2))
+print(com(5,2))
 --------------------------------------
 def m(l, x):
   for i in range(len(l)):
