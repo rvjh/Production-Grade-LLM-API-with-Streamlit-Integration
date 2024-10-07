@@ -2,6 +2,17 @@
 
 
 
+------------------------------------
+a = [1,2,3,4]
+b = [2,4,5,6,7]
+
+c = set(a).union(set(b))
+d = set(a).intersection(set(b))
+e = set(a).difference(set(b))
+
+print(c)
+print(d)
+print(e)
 -----------------------------
 a = [1,2,3,4,5]
 b = ['a','b','c','d','e']
