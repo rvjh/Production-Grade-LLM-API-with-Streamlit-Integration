@@ -4,7 +4,11 @@
 
 
 
+----------------------------
+def m(s):
+  return s[::-1]
 
+m("klkncjdwnnc")
 -----------------------------
 def m(l,x):
   for i in range(len(l)):
