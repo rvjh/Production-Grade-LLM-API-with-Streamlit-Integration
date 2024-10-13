@@ -10,6 +10,45 @@
 
 
 
+
+
+
+----------------------------------------
+def m(x):
+  if x==0 or x==1:
+    return 1
+  else:
+    return x*m(x-1)
+
+
+def per(n,r):
+  if n>r:
+    return m(n)/m(n-r)
+
+def com(n,r):
+  if n>r:
+    return m(n)/(m(r)*m(n-r))
+
+print(per(5,2))
+print(com(5,2))
+---------------------------------------
+def m(x):
+  l = [0,1]
+  if x==0:
+    return l[0]
+  elif x==1:
+    return l
+  else:
+    a = 0
+    b = 1
+    for i in range(2,x):
+      c = a + b
+      l.append(c)
+      a = b
+      b = c
+  return l
+
+m(10)
 -------------------------------
 def m(x):
   if x==0 or x==1:
