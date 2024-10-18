@@ -8,6 +8,16 @@
 
 
 
+----------------------------
+def m(s):
+  c = 0
+  d = {}
+  for i in s:
+    d[i]=s.count(i)
+    c = c + 1
+  return d
+
+m("kjbcwj2exownqnc")
 ------------------------
 def m(s):
   return s[::-1]
