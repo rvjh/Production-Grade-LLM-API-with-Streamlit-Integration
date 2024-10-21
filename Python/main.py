@@ -6,6 +6,16 @@
 
 
 
+
+-----------------------------
+def m(a,b):
+  if len(a)==len(b) and a[::-1]==b[::-1]:
+    return "yes"
+  else:
+    return "no"
+
+m("baab","baab")
+
 ------------------------------
 def m(n):
   l = [0,1]
