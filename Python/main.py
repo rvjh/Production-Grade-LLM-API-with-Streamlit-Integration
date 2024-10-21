@@ -4,6 +4,12 @@
 
 
 
+
+------------------------
+def m(s):
+  return s[::-1]
+
+m("dmndckjwncn")
 ---------------------------------
 from functools import reduce
 
