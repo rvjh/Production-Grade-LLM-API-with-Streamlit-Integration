@@ -6,6 +6,18 @@
 
 
 
+
+-----------------------------
+def m(a,b):
+  d = {}
+  for i in a:
+    d[i]=True
+  for j in b:
+    if j in d:
+      return j
+  return None
+
+m([1,2,3],[3,4,5])
 -----------------------------
 def m(s):
   c = 0
