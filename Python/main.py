@@ -2,7 +2,14 @@
 
 
 
+-------------------------------------
+from functools import reduce
 
+squared = list(map(lambda x: x**2, [1, 2, 3, 4]))
+print(squared)
+
+sum_of_squares = reduce(lambda x, y: x + y**2, [1, 2, 3, 4])
+print(sum_of_squares)
 --------------------
 a = lambda x : x**2
 
