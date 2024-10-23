@@ -1,8 +1,17 @@
 
 
 
+------------------------------
+def per(n,r):
+  if n>r:
+    return f(n)/f(n-r)
 
+def com(n,r):
+  if n>r:
+    return f(n)/(f(n-r)*f(r))
 
+print(per(5,2))
+print(com(5,2))
 ---------------------
 def f(n):
   if n==0 or n==1:
