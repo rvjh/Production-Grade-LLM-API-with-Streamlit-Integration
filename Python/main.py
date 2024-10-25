@@ -4,8 +4,10 @@
 
 
 
-
-
+--------------------------
+s = "kdlnclwcwmcpw"
+a = lambda x: x[::-1]
+a(s)
 --------------------------
 def m(l,x):
   for i in range(len(l)):
