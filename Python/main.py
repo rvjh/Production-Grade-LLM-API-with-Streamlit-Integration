@@ -4,6 +4,12 @@
 
 
 
+
+-----------------------
+def m(s):
+  return s[::-1]
+
+m("snsncoiwmcwep")
 --------------------------
 s = "kdlnclwcwmcpw"
 a = lambda x: x[::-1]
