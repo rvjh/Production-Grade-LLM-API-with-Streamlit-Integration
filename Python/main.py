@@ -7,6 +7,15 @@
 
 
 
+
+--------------------------------
+def f(x):
+  if x == 0 or x==1:
+    return 1
+  else:
+    return x*f(x-1)
+
+f(6)
 -----------------------
 def m(a,b):
   return a*b
