@@ -3,6 +3,15 @@
 
 
 
+
+-------------------------
+def m(n):
+  if n==0 or n==1:
+    return 1
+  else:
+    return n*m(n-1)
+
+m(6)
 --------------------------------
 def m(l,x):
   for i in range(len(l)):
