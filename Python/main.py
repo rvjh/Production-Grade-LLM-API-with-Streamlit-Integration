@@ -8,6 +8,13 @@
 
 
 ------------------------
+def m(a,b):
+  return a*b
+
+from functools import reduce
+
+reduce(m,[1,2,3,4,5])
+------------------------
 def per(n,r):
   if n>r:
     return m(n)/m(n-r)
