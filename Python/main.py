@@ -4,6 +4,11 @@
 
 ------------------
 def m(s):
+  return s[::2]
+
+m("alncownocnpwnec")
+------------------
+def m(s):
   return s[::-1]
 
 m("abcba")
