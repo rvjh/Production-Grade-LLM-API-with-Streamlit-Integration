@@ -4,6 +4,13 @@
 
 
 ----------------------
+def m(a,b):
+  return a*b
+
+from functools import reduce
+
+reduce(m,[1,2,3])
+----------------------
 a = lambda x: x**2
 a(10)
 --------------------
