@@ -7,6 +7,23 @@
 
 
 
+
+-----------------------------
+def f(n):
+  l=[0,1]
+  if n==0:
+    return l[0]
+  elif n==1:
+    return l
+  else:
+    a,b = 0,1
+    for i in range(2,n+1):
+      c = a+b
+      l.append(c)
+      a = b
+      b = c
+  return l
+f(10)
 -----------------------------
 a = [1,2,3]
 b = [3,4,5]
