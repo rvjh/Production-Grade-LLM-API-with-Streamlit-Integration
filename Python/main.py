@@ -3,6 +3,15 @@
 
 
 
+
+--------------------------
+def m(x):
+  if x==0 or x==1:
+    return 1
+  else:
+    return x*m(x-1)
+
+m(7)
 ---------------------------
 def m(a,b):
   if len(a)==len(b) and a[::-1]==b[::-1]:
