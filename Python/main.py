@@ -1,6 +1,13 @@
 
 
 
+-----------------------
+from functools import reduce
+
+def m(a,b):
+  return a*b
+
+reduce(m,[1,2,3])
 ------------------------
 list(map(a,[1,2,3]))
 ------------------------
