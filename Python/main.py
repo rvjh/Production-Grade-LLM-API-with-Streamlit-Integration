@@ -2,6 +2,15 @@
 
 
 
+
+-----------------------------
+def m(s):
+  d={}
+  for i in s:
+    d[i]=s.count(i)
+  return d
+
+m("lknclwnoqcn")
 ------------------
 def m(s):
   return s[::-1]
