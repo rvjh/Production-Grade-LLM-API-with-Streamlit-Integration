@@ -1,6 +1,14 @@
 
 
 
+---------------------------
+def m(s):
+  d={}
+  for i in s:
+    d[i]=s.count(i)
+  return d
+
+m("2eknclencoin2comp2c")
 -----------------
 def m(s):
   return s[::-1]
