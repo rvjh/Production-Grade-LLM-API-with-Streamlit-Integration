@@ -1,6 +1,11 @@
 
 
 
+
+----------------------------
+def m(s):
+  return s[::-1]
+m("kbcljwebnocnwenceni")
 ------------------------------
 def m(l,x):
   for i in range(len(l)):
