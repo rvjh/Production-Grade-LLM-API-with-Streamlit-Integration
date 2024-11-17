@@ -3,6 +3,11 @@
 
 
 
+--------------------
+def m(a,b):
+  return a*b
+
+list(map(m,[1,2,3],[4,5,6]))
 ------------------
 def m(l,x):
   for i in range(len(l)):
