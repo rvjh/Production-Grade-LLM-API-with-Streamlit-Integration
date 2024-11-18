@@ -2,7 +2,14 @@
 
 
 
+---------------------
+a = [1,3]
+b = ['a','c']
+c = dict(zip(a,b))
+print(c)
 
+c.update({2:'b'})
+print(c)
 -------------------
 def m(a,b):
   return a*b
