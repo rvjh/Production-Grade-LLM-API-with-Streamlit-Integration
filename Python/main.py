@@ -1,6 +1,15 @@
 
 
 
+
+-----------------------
+def m(a,b):
+  if len(a)==len(b) and a[::-1]==b[::-1]:
+    return True
+  else:
+    return False
+
+m("abcba","abcba")
 ------------------------
 def m(a,b):
   d={}
