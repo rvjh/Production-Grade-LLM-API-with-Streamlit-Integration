@@ -4,6 +4,11 @@
 
 
 
+-----------------
+def m(s):
+  return s[::-1]
+
+m("jsnvljsdnv")
 --------------------
 def m(a,b):
   return a*b
