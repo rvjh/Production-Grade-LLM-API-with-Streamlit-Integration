@@ -3,6 +3,13 @@
 
 
 
+
+----------------------
+def m(a,b):
+  a,b = b,a
+  return a,b
+
+m(10,20)
 -------------------------
 def m(l,x):
   for i in range(len(l)):
