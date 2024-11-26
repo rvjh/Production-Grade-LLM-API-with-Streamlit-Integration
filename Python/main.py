@@ -1,7 +1,13 @@
 
 
 
+----------------------
+from functools import reduce
 
+def m(a,b):
+  return a*b
+
+reduce(m,[1,2,3,4])
 --------------------
 def m(x):
   return x**2
