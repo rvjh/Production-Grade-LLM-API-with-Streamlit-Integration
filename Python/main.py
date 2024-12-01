@@ -4,6 +4,15 @@
 
 
 --------------------
+def per(n,r):
+  return m(n)/m(n-r)
+
+def com(n,r):
+  return m(n)/(m(r)*m(n-r))
+
+print(per(5,2))
+print(com(5,2))
+--------------------
 def m(l,x):
   for i in range(len(l)):
     for j in range(i+1, len(l)):
