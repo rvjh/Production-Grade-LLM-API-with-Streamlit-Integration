@@ -2,6 +2,13 @@
 
 
 
+-----------------
+def m(a,b):
+  return a*b
+
+from functools import reduce
+
+reduce(m,[1,2,3,4])
 -------------------
 x = lambda a:a**2
 list(map(x,[1,2,3,4]))
