@@ -5,6 +5,14 @@
 
 
 
+------------------------------------
+from collections import Counter
+def m(s,t):
+  c = Counter(s)
+  d = Counter(t)
+  return c==d
+
+m("anagram","nagaram")
 -----------------------------------------
 ## exact no of strings using hashmap -> anagram
 
