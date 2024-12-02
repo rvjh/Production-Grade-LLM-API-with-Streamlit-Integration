@@ -5,6 +5,20 @@
 
 
 
+---------------------------------
+## two sum
+
+def m(l,x):
+  prevMap = {}
+  for i,n in enumerate(l):
+    diff = x - n
+    if diff in prevMap:
+      return [prevMap[diff],i]
+    prevMap[n]=i
+  return
+
+m([1,2,3,4],6)
+
 ------------------------------------
 from collections import Counter
 def m(s,t):
