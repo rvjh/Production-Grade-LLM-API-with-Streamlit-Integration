@@ -5,6 +5,23 @@
 
 
 
+
+--------------------------------
+## two sum
+
+def m(nums, target):
+  l , r = 0, len(nums)-1
+  while l<r:
+    CurSum = nums[l]+nums[r]
+    if CurSum > target:
+      r-=1
+    elif CurSum < target:
+      l+=1
+    else:
+      return [l,r]
+  return
+
+m([1,2,3,4],6)
 ---------------------------------
 ## two sum
 
