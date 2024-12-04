@@ -7,6 +7,16 @@
 
 
 
+------------------------
+def m(l,x):
+  p = {}
+  for i,n in enumerate(l):
+    diff = x -n
+    if diff in p:
+      return [p[diff],i]
+    p[n]=i
+  
+m([1,2,3,4],6)
 ------------------------------
 def m(a,b):
   d={}
