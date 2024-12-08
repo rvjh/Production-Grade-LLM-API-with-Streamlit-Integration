@@ -6,6 +6,11 @@
 
 
 
+-----------------------
+def m(s):
+  return s[::-1]
+
+m("lknclnwjdkl")
 --------------------
 a = lambda x:x**2
 list(map(a,[1,2,3,4]))
