@@ -17,11 +17,12 @@ def m(l):
     if n==0:
       curmin, curmax = 1,1
       continue
+    tmp = curmax*n
     curmax = max(n*curmax, n*curmin, n)
-    curmin = min(n*curmax, n*curmin, n)
+    curmin = min(tmp, n*curmin, n)
     res = max(res, curmax)
   return res
-
+   
 m([2,3,-2,4])
 --------------------------
 from functools import reduce
