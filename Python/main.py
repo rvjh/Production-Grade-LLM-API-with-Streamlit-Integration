@@ -7,6 +7,20 @@
 
 
 
+-------------------------------
+## two sum
+
+def m(l,x):
+  d={}
+  for i,n in enumerate(l):
+    diff = x - n
+    if diff in d:
+      return [d[diff],i]
+    d[n]=i
+  return 
+
+m([1,2,3,4],6)
+
 -------------------------
 def m(a,b):
   d={}
