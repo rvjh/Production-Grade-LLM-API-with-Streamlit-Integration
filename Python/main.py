@@ -7,6 +7,22 @@
 
 
 
+------------------------------
+## contigious subarray-> max product Dynamic Prog
+
+def m(l):
+  res = max(l)
+  curmin, curmax = 1,1
+  for n in l:
+    if n==0:
+      curmin, curmax = 1,1
+      continue
+    curmax = max(n*curmax, n*curmin, n)
+    curmin = min(n*curmax, n*curmin, n)
+    res = max(res, curmax)
+  return res
+
+m([2,3,-2,4])
 --------------------------
 from functools import reduce
 
