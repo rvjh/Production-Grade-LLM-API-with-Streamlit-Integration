@@ -4,6 +4,11 @@
 
 
 
+
+-------------------------
+from functools import reduce
+
+reduce(m,[1,2,4])
 --------------------------
 a = lambda x:x**2
 
