@@ -7,6 +7,11 @@
 
 
 
+--------------------------
+def m(s):
+  return s[::-1]
+
+m("akjbvckVO")
 ------------------------------
 ## contigious subarray-> max product Dynamic Prog
 
