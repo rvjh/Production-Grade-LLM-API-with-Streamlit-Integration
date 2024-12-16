@@ -5,6 +5,12 @@
 
 
 
+
+----------------------
+def m(s):
+  return s[::-1]
+
+m("cjckfkflgl")
 -------------------------
 def m(a,b):
   return a*b
