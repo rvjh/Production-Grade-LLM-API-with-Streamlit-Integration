@@ -6,7 +6,10 @@
 
 
 
+-------------------
+a = lambda x : x**2
 
+a(5)
 ------------------------
 from functools import reduce
 
