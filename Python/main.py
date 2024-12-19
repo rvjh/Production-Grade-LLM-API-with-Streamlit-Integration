@@ -7,6 +7,14 @@
 
 
 ------------------------
+def m(l,x):
+  for i in range(len(l)):
+    for j in range(i+1, len(l)):
+      if l[i]+l[j]==x:
+        return i,j
+
+m([1,2,3,4],7)
+------------------------
 def m(x):
   l=[0,1]
   if x==0:
