@@ -6,6 +6,13 @@
 
 
 
+--------------------
+a = [1,2]
+b = ['a','b']
+c = dict(zip(a,b))
+print(c)
+c.update({3:'c'})
+print(c)
 -----------------
 a = lambda x:x**2
 
