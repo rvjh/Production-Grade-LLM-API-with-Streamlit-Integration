@@ -5,6 +5,11 @@
 
 
 
+
+------------------
+a = lambda x:x**2
+
+list(map(a,[1,2,3]))
 -----------------------------
 from functools import reduce
 
