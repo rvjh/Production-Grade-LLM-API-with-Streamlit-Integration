@@ -6,8 +6,17 @@
 
 
 
+-----------------------------
+def m(a,b):
+  return a*b
 
+from functools import reduce
 
+reduce(m,[1,2,3,4])
+---------------------------
+a = lambda x : x**2
+
+list(map(a,[1,2,3]))
 -----------------------
 def per(n,r):
   if n>r:
