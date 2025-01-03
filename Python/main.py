@@ -10,6 +10,13 @@
 
 
 
+------------------------
+a = [1,2]
+b = ['a','b']
+c = dict(zip(a,b))
+print(c)
+c.update({3:'c'})
+print(c)
 -------------------------
 def per(n,r):
   return m(n)/m(n-r)
