@@ -10,6 +10,15 @@
 
 
 
+-------------------------------
+def per(n,r):
+  return m(n)/m(n-r)
+
+def com(n,r):
+  return m(n)/(m(r)*m(n-r))
+
+print(per(5,3))
+print(com(5,3))
 ----------------------------
 def m(x):
   if x==0 or x==1:
