@@ -8,8 +8,15 @@
 
 
 
+--------------------------------------
+def m(l,x):
+  for i in range(len(l)):
+    for j in range(i+1, len(l)):
+      if l[i]+l[j]==x:
+        return i,j
+  return None
 
-
+m([1,2,3],5)
 --------------------------
 def per(n,r):
   if n>r:
