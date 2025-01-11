@@ -6,6 +6,10 @@
 
 
 --------------------------
+from functools import reduce
+
+reduce(a,[1,2,4])
+--------------------------
 a = lambda x,y : x*y
 
 list(map(a,[1,2,3],[2,3]))
