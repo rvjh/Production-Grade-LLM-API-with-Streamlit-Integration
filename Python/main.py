@@ -3,8 +3,10 @@
 
 
 
+------------------------------
+from functools import reduce
 
-
+reduce(a,[1,2,3])
 --------------------------
 a = lambda x,y : x*y
 
