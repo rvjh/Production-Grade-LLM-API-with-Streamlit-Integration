@@ -3,6 +3,14 @@
 
 
 ----------------------
+def m(s):
+  d={}
+  for i in s:
+    d[i]=s.count(i)
+  return d
+
+m("diydidid")
+----------------------
 a = [1,2,3]
 b = [2,3,4]
 c = set(a).union(set(b))
