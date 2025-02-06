@@ -7,6 +7,15 @@
 
 
 
+
+----------------------
+def m(a,b):
+  if len(a)==len(b) and a[::-1]==b[::-1]:
+    return "Anagram"
+  else:
+    "Not Anagram"
+
+m("aba","aba")
 ------------------------
 def m(s):
   d={}
