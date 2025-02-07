@@ -4,6 +4,12 @@
 
 
 
+
+---------------------
+def m(s):
+  return s[::-1]
+
+m("jncpwenvpinwipvn")
 ----------------------
 from functools import reduce
 
