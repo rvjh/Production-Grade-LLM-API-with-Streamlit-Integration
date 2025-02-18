@@ -5,6 +5,16 @@
 
 
 
+
+---------------------------
+def m(s):
+  d={}
+  s=s.lower()
+  for i in s:
+    d[i]=s.count(i)
+  return d
+
+m("jhcfAAFSFcutdutu")
 -------------------------
 def m(s):
   return s[::-1]
