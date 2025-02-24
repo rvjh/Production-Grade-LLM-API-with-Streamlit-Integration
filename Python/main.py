@@ -5,8 +5,15 @@
 
 
 
+------------------------------------
+import pandas as pd
 
-
+def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
+    ids = orders['customerId']
+    a = pd.DataFrame()
+    a['Customers'] = customers[~customers['id'].isin(ids)][['name']]
+    return a
+    
 ------------------------
 a = [1,2,3]
 b = [3,4,5]
