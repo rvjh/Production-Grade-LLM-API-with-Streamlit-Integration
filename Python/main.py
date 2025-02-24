@@ -5,6 +5,14 @@
 
 
 
+----------------------------------
+import pandas as pd
+
+def article_views(views: pd.DataFrame) -> pd.DataFrame:
+    a = views[views['author_id'] == views['viewer_id']]['author_id'].unique()
+    res = pd.DataFrame(a, columns=['id']).sort_values('id', ascending=True).reset_index(drop=True)
+    return res
+
 ------------------------------------
 import pandas as pd
 
