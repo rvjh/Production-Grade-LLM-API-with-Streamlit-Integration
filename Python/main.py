@@ -11,7 +11,7 @@
 def m(a,b):
   d={}
   for i in a:
-    d[i]=Trur
+    d[i]=True
   for j in b:
     if j in d:
       return j
