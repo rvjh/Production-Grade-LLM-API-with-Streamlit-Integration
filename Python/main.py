@@ -5,6 +5,14 @@
 
 
 
+-----------------------------------------
+import pandas as pd
+import numpy as np
+
+def invalid_tweets(tweets: pd.DataFrame) -> pd.DataFrame:
+    a = tweets[tweets['content'].apply(len)>15][['tweet_id']]
+    return a
+    
 ----------------------------------
 import pandas as pd
 
