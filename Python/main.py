@@ -5,6 +5,11 @@
 
 
 
+--------------------------
+def m(s):
+  return s[::-1]
+
+m("lkshdoihw")
 -----------------------------------------
 import pandas as pd
 import numpy as np
