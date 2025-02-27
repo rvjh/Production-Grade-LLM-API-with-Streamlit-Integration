@@ -7,7 +7,14 @@
 
 
 
+------------------------------------------
+# Write your MySQL query statement below
 
+select name from Employee where id in(
+select managerId
+from Employee
+group by managerId
+having count(managerId)>=5)
 ------------------------------
 a = [1,2,3]
 b = [3,4,5]
