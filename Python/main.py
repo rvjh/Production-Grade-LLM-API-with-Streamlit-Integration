@@ -12,6 +12,15 @@
 
 
 --------------------
+def m(l,x):
+  for i in range(len(l)):
+    for j in range(i+1, len(l)):
+      if l[i]+l[j]==x:
+        return l[i],l[j]
+  return None
+
+m([1,2,3,4],7)
+--------------------
 def m(a,b):
   d={}
   for i in a:
