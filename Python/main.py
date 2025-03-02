@@ -8,8 +8,18 @@
 
 
 
+---------------------------------------
+import pandas as pd
 
+def valid_emails(users: pd.DataFrame) -> pd.DataFrame:
+    regex_pattern = r'^[A-Za-z][A-Za-z0-9_.-]*@leetcode\.com$'
+    
+    # Filter valid emails
+    valid_users = users[users['mail'].str.match(regex_pattern, na=False)]
+    
+    return valid_users
 
+    
 -------------------------------------
 a = [1,2,3]
 b = [3,4,5]
