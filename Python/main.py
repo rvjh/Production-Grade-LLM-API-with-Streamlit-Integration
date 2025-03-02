@@ -19,7 +19,7 @@ def per(n,r):
 
 def com(n,r):
   if n>r:
-    return m(n)/(m(n)*m(n-r))
+    return m(n)/(m(r)*m(n-r))
 
 print(per(5,2))
 print(com(5,2))
