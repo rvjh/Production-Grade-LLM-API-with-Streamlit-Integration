@@ -6,6 +6,25 @@
 
 
 
+
+-------------------------------
+import pandas as pd
+
+def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
+    unique_salaries = employee['salary'].drop_duplicates().nlargest(N)
+    
+    # Fetch the Nth highest salary or return None
+    unique_salaries = employee['salary'].drop_duplicates().nlargest(N)
+    
+    # Check if Nth highest salary exists
+    if len(unique_salaries) < N:
+        nth_salary = None  # If N is greater than available salaries, return NULL (None)
+    else:
+        nth_salary = unique_salaries.iloc[N-1]  # Fetch Nth highest salary
+
+    # Return DataFrame with the correct column name
+    return pd.DataFrame({f'getNthHighestSalary({N})': [nth_salary]})
+
 ------------------------------------
 import pandas as pd
 
