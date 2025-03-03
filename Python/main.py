@@ -10,6 +10,24 @@
 
 
 
+
+---------------------------------------------
+import pandas as pd
+
+def department_highest_salary(employee: pd.DataFrame, department: pd.DataFrame) -> pd.DataFrame:
+    merged_df = employee.merge(department, left_on='departmentId', right_on='id')
+    
+    # Group by departmentId and find the max salary in each department
+    highest_salary_per_dept = merged_df.groupby('departmentId')['salary'].max().reset_index()
+    
+    # Merge back to get all employees with the highest salary in each department
+    result_df = merged_df.merge(highest_salary_per_dept, on=['departmentId', 'salary'])
+
+    # Select and rename the required columns
+    result_df = result_df[['name_y', 'name_x', 'salary']].rename(columns={'name_y': 'Department', 'name_x': 'Employee'})
+    
+    return result_df
+    
 ---------------------------------------
 import pandas as pd
 
