@@ -7,6 +7,26 @@
 
 
 
+
+-----------------------------------
+WITH PriceSold AS (
+    SELECT 
+        u.product_id,
+        u.units,
+        p.price
+    FROM UnitsSold u
+    JOIN Prices p
+    ON u.product_id = p.product_id
+    WHERE u.purchase_date BETWEEN p.start_date AND p.end_date
+)
+SELECT 
+    p.product_id,
+    COALESCE(ROUND(SUM(ps.units * ps.price) / NULLIF(SUM(ps.units), 0), 2), 0) AS average_price
+FROM Prices p
+LEFT JOIN PriceSold ps
+ON p.product_id = ps.product_id
+GROUP BY p.product_id;
+
 -------------------------------
 import pandas as pd
 
