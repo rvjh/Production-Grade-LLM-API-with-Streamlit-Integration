@@ -10,6 +10,15 @@
 
 
 
+---------------------------------------
+import pandas as pd
+
+def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
+    second_highest_salary = employee['salary'].drop_duplicates().nlargest(2).iloc[-1] if len(employee['salary'].drop_duplicates()) > 1 else None
+
+    # Output result
+    result = pd.DataFrame({'SecondHighestSalary': [second_highest_salary]})
+    return result
 0-----------------------
 # Write your MySQL query statement below
 
