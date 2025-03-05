@@ -6,6 +6,13 @@
 
 
 
+--------------------------------
+select query_name,
+ROUND(AVG(rating/position), 2) as quality,
+ROUND(100.0*sum(if(rating<3, 1,0))/count(1),2) as poor_query_percentage
+from Queries
+group by query_name
+order by query_name desc;
 ----------------------------------
 a = [1,2,3]
 b = [3,4,5]
