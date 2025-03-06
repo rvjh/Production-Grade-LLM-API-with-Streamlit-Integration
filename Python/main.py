@@ -4,8 +4,16 @@
 
 
 
+---------------------------------
 
-
+with cte as(
+select *,
+case when order_date = customer_pref_delivery_date then 1 else 0 end as "immediate",
+row_number() over(partition by customer_id order by order_date) rn
+from Delivery)
+select
+round(sum(immediate)*100/count(immediate),2) immediate_percentage
+from cte where rn=1
 ----------------------------------
 select 
 date_format(trans_date,'%Y-%m') as Month,
