@@ -2,8 +2,17 @@
 
 
 
-
-
+---------------------------------
+with cte as(
+select player_id, event_date,
+first_value(event_date) over(partition by player_id order by event_date) first_log,
+lead(event_date) over(partition by player_id order by event_date) sec_log
+from Activity)
+, cte2 as(
+select *,
+case when first_log+1 = sec_log then first_log end rn
+from cte)
+select round(count(rn)/count(distinct player_id),2) fraction from cte2
 ---------------------------------
 
 with cte as(
