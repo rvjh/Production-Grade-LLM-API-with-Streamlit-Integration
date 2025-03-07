@@ -2,6 +2,11 @@
 
 
 
+
+-------------------------------
+def m(s):
+  return s[::-1]
+m("jcwenchpiwe")
 ---------------------------------
 with cte as(
 select player_id, event_date,
