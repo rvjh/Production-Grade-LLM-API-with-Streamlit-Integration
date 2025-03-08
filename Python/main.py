@@ -5,6 +5,24 @@
 
 
 
+
+--------------------------------------
+import math
+
+def per(n, r):
+    if n >= r:
+        return math.factorial(n) / math.factorial(n - r)
+    return None  # Handle cases where n < r
+
+def com(n, r):
+    if n >= r:
+        return math.factorial(n) / (math.factorial(r) * math.factorial(n - r))
+    return None  # Handle cases where n < r
+
+# Test cases
+print(per(5, 2))  # 5P2 = 5! / (5-2)! = 5! / 3! = 5 × 4 = 20
+print(com(5, 2))  # 5C2 = 5! / (2!(5-2)!) = 5! / (2!3!) = 10
+
 ---------------------------
 def per(n,r):
   if n>r:
