@@ -4,7 +4,10 @@
 
 
 
-
+--------------------------------------------
+select max(num) as num from (
+select num, count(num) n
+from MyNumbers group by num having count(num) = 1) A
 ---------------------------------------------
 
 select user_id, count(follower_id) followers_count
