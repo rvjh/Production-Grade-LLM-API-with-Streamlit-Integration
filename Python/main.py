@@ -9,6 +9,19 @@
 
 
 
+-------------------------------------
+
+WITH cte AS (
+    SELECT *,
+           dense_rank() OVER (PARTITION BY product_id ORDER BY year) AS rn
+    FROM Sales
+)
+SELECT product_id,
+       year AS first_year,
+       quantity,
+       price
+FROM cte
+WHERE rn = 1;
 
 ----------------------------------------
 select activity_date day , count(distinct user_id) active_users
