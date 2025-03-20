@@ -6,8 +6,14 @@
 
 
 
+---------------------------------------------
 
-
+with cte as(
+select
+count(student) stu_num, class
+from Courses 
+group by class)
+select class from cte where stu_num>=5
 ----------------------------------------------
 
 with cte as(
