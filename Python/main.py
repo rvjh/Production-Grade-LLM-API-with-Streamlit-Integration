@@ -10,6 +10,17 @@
 
 
 
+
+---------------------------------------------------
+import pandas as pd
+
+def largest_orders(orders: pd.DataFrame) -> pd.DataFrame:
+    df = orders.groupby('customer_number')['order_number'].count().reset_index(name='count')
+    m = df.sort_values(by='count',ascending=False)
+    c = m.head(1)[['customer_number']]
+    return c
+
+    
 -----------------------------------------
 import pandas as pd
 
