@@ -4,6 +4,24 @@
 
 
 
+
+
+-----------------------------------------
+import pandas as pd
+
+def total_time(employees: pd.DataFrame) -> pd.DataFrame:
+    # Calculate the total time for each event
+    employees['total_time'] = employees['out_time'] - employees['in_time']
+    
+    # Group by event_day and emp_id, then sum the total_time
+    df = employees.groupby(['event_day', 'emp_id'])['total_time'].sum().reset_index()
+    
+    # Rename the 'event_day' column to 'day'
+    df.rename(columns={'event_day': 'day'}, inplace=True)
+    
+    # Return the result with the necessary columns
+    return df[['day', 'emp_id', 'total_time']]
+
 ---------------------------------------------
 import pandas as pd
 
