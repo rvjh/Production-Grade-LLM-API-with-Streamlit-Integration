@@ -9,6 +9,14 @@
 
 
 
+
+-----------------------------------------
+import pandas as pd
+
+def find_classes(courses: pd.DataFrame) -> pd.DataFrame:
+    class_counts = courses.groupby('class').count().reset_index()
+    res = class_counts[class_counts['student']>=5][['class']]
+    return res
 ------------------------------------
 import pandas as pd
 
