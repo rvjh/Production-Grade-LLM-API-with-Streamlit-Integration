@@ -4,6 +4,15 @@
 
 
 
+---------------------------------------------
+import pandas as pd
+
+def rearrange_products_table(products: pd.DataFrame) -> pd.DataFrame:
+    df = pd.melt(products, id_vars=['product_id'], var_name = 'store',value_name='price')
+    return df.dropna()
+
+
+    
 --------------------------------------------
 select max(num) as num from (
 select num, count(num) n
