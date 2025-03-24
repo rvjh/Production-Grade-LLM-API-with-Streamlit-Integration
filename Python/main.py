@@ -8,6 +8,19 @@
 
 
 
+---------------------------------------
+import pandas as pd
+
+def categorize_products(activities: pd.DataFrame) -> pd.DataFrame:
+    cte_distinct = activities.drop_duplicates(subset=['sell_date', 'product'])
+
+    result = cte_distinct.groupby('sell_date').agg(
+        num_sold=('product', 'count'),
+        products=('product', lambda x: ','.join(sorted(x)))
+    ).reset_index()
+
+    result = result.sort_values(by='sell_date').reset_index(drop=True)
+    return result
 ------------------------------------
 
 select e1.employee_id, e1.name, count(e2.employee_id) reports_count,
