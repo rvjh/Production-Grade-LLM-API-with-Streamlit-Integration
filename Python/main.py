@@ -6,6 +6,11 @@
 
 
 
+
+-----------------------------------
+series1 = pd.Series(['php', 'python', 'java', 'c#'])
+a = lambda x: x[0].upper() + x[1:-1] + x[-1].upper()
+series1.map(a)
 ----------------------------
 import pandas as pd
 
