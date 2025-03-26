@@ -7,6 +7,10 @@
 
 
 
+--------------------------------
+series1 = pd.Series(['php', 'python', 'java', 'c#'])
+a = lambda x: len(x)
+series1.map(a)
 -----------------------------------
 series1 = pd.Series(['php', 'python', 'java', 'c#'])
 a = lambda x: x[0].upper() + x[1:-1] + x[-1].upper()
