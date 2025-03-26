@@ -7,6 +7,12 @@
 
 
 
+
+--------------------------------
+date_series = pd.Series(['01 Jan 2015', '10-02-2016', '20180307', '2014/05/06', '2016-04-12', '2019-04-06T11:20'])
+date_series
+a = pd.to_datetime(date_series, errors='coerce')
+a
 --------------------------------
 series1 = pd.Series(['php', 'python', 'java', 'c#'])
 a = lambda x: len(x)
