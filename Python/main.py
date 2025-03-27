@@ -7,8 +7,15 @@
 
 
 
-
-
+---------------------------------------
+select employee_id,department_id
+from Employee
+group by 1
+having count(distinct department_id)=1
+union all
+select employee_id,department_id
+from Employee
+where  primary_flag = "Y"
 ------------------------------------
 a = [1,2,3]
 b = [2,3,4]
