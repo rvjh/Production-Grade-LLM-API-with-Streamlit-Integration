@@ -5,6 +5,15 @@
 
 
 
+
+-----------------------------------------
+select distinct num as ConsecutiveNums
+from(
+SELECT num,
+LEAD(num, 1) OVER (ORDER BY id) AS next_num,
+LAG(num, 1) OVER (ORDER BY id) AS prev_num
+FROM Logs) A
+where num = next_num and  num = prev_num 
 -----------------------------------------
 select *,
 case when x+y>z and y+z>x and z+x>y then "Yes" else "No" end as triangle
