@@ -8,6 +8,29 @@
 
 
 
+
+
+------------------------------------------
+import pandas as pd
+
+def students_and_examinations(students: pd.DataFrame, subjects: pd.DataFrame, examinations: pd.DataFrame) -> pd.DataFrame:
+    df_cross = pd.merge(students, subjects, how='cross')
+
+    # Count the number of exams attended by each student for each subject
+    df_attendance = examinations.groupby(['student_id', 'subject_name']).size().reset_index(name='attended_exams')
+
+    # Merge the cross join with the attendance data
+    df_result = pd.merge(df_cross, df_attendance, on=['student_id', 'subject_name'], how='left')
+
+    # Fill NaN values (if a student did not attend a subject) with 0
+    df_result['attended_exams'] = df_result['attended_exams'].fillna(0).astype(int)
+
+    # Sort the result by student_id and subject_name
+    df_result = df_result.sort_values(by=['student_id', 'subject_name'])
+
+    return df_result
+
+    
 -------------------------------------------
 import pandas as pd
 
