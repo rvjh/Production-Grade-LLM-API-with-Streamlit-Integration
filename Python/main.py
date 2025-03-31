@@ -7,6 +7,16 @@
 
 
 
+
+-------------------------------------------
+import pandas as pd
+
+def replace_employee_id(employees: pd.DataFrame, employee_uni: pd.DataFrame) -> pd.DataFrame:
+
+    a = pd.merge(employees,employee_uni,on='id', how='left')
+    # a['unique_id'] = a['unique_id'].fillna("null")
+    m = a[['unique_id','name']]
+    return m
 ---------------------------------
 import pandas as pd
 
