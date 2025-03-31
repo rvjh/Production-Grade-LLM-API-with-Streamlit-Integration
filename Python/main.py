@@ -7,8 +7,14 @@
 
 
 
+---------------------------------
+import pandas as pd
 
-
+def actors_and_directors(actor_director: pd.DataFrame) -> pd.DataFrame:
+    a = actor_director.groupby(['actor_id','director_id']).size().reset_index(name='count')
+    b = a[a['count']>=3][['actor_id','director_id']]
+    return b
+    
 ---------------------------------
 a = [1,2,3]
 b = [2,3,4]
