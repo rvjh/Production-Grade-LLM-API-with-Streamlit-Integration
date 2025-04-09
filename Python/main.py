@@ -13,6 +13,21 @@
 
 
 
+-----------------------------------
+## decorator
+
+def d(a,b):
+  print(a/b)
+
+def s(f):
+  def m(a,b):
+    if a<b:
+      a,b = b,a
+    return f(a,b)
+  return m
+
+o = s(d)
+o(10,2)
 -------------------------------
 def m():
   n=1
