@@ -10,6 +10,25 @@
 
 
 
+
+---------------------------------------
+a = np.array([[1,2],[3,4]])
+b = np.array([[3,4],[5,6]])
+
+def m(a,b):
+  col_a = a.shape[1]
+  rows_b = b.shape[0]
+  if col_a != rows_b:
+    return "Matrix Mul not possible"
+  else:
+    r = np.zeros((a.shape[0],b.shape[1]))
+    for i in range(a.shape[0]):
+      for j in range(b.shape[0]):
+        for k in range(a.shape[1]):
+          r[i][j] = r[i][j] + a[i][k]*b[k][j]
+    return r
+
+m(a,b)
 ------------------------------------
 import numpy as np
 
