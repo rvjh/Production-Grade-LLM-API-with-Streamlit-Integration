@@ -15,6 +15,24 @@
 
 
 
+
+-----------------------------------------
+import numpy as np
+
+a = np.array([[1,2],[2,3]])
+b = np.array([[3,4],[4,5]])
+col_a = a.shape[1]
+row_b= b.shape[0]
+
+r = np.zeros((col_a, row_b))
+if col_a != row_b:
+  print("not possible")
+else:
+  for i in range(col_a):
+    for j in range(row_b):
+      for k in range(col_a):
+        r[i][j] = r[i][j] + a[i][k]*b[k][j]
+  print(r)
 ----------------------------------------
 a = [1,2,3]
 b = [3,4,5]
