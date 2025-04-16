@@ -6,6 +6,25 @@
 
 
 
+
+----------------------------------------
+import numpy as np
+def m(a,b):
+  col_a = a.shape[1]
+  row_b = b.shape[0]
+  if col_a!=row_b:
+    print("not possible")
+  else:
+    r = np.zeros((col_a, row_b))
+    for i in range(col_a):
+      for j in range(row_b):
+        for k in range(col_a):
+          r[i][j] = r[i][j] + a[i][k]*b[k][j]
+    return r
+
+a = np.array([[1,2],[3,4]])
+b = np.array([[1,3],[4,6]])
+m(a,b)
 ----------------------------
 a = [1,2,3]
 b = [3,4,5]
