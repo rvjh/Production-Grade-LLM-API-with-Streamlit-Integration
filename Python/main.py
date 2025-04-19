@@ -15,6 +15,27 @@
 
 
 
+
+-------------------------------------
+import numpy as np
+
+def matrix_multiply(a,b):
+  col_a = a.shape[1]
+  row_b = b.shape[0]
+  if col_a != row_b:
+    return "Mul no possible"
+  else:
+    r = np.zeros((col_a, row_b))
+    for i in range(col_a):
+      for j in range(row_b):
+        for k in range(col_a):
+          r[i][j] = r[i][j] + a[i][k]*b[k][j]
+    return r
+
+a = np.array([[1,2],[2,3]])
+b = np.array([[4,2],[5,3]])
+matrix_multiply(a,b)
+
 -----------------------------------------
 a = [1,2,3]
 b = [3,4,5]
