@@ -17,6 +17,22 @@
 
 
 
+-------------------------------------
+def m(x):
+  l=[0,1]
+  if x==0:
+    return l[0]
+  elif x==1:
+    return l
+  else:
+    a,b = 0,1
+    for i in range(x-1):
+      c=a+b
+      a=b
+      b=c
+      l.append(c)
+    return l
+m(10)
 ------------------------------
 def per(n,r):
   if n>r:
