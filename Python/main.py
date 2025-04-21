@@ -17,6 +17,15 @@
 
 
 
+------------------------------
+def per(n,r):
+  if n>r:
+    return m(n)/m(n-r)
+def com(n,r):
+  if n>r:
+    return m(n)/(m(n-r)*m(r))
+print(per(10,3))
+print(com(10,3))
 -------------------------
 def m(x):
   if x==0 or x==1:
