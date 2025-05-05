@@ -9,6 +9,11 @@
 
 
 
+
+---------------------------
+def m(s):
+  return s[::-1]
+m("sdvnekn")
 -------------------------------------------
 import numpy as np
 def mat_mul(a,b):
