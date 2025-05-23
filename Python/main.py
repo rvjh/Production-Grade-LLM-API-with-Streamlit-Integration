@@ -22,8 +22,13 @@
 
 
 
-
-
+===========================
+def m(s):
+  d={}
+  for i in s:
+    d[i]=s.count(i)
+  return d
+m("jcviciv")
 -===================
 def m(s):
   return s[::-1]
