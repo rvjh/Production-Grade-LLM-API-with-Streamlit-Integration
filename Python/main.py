@@ -19,6 +19,17 @@
 
 
 
+
+-----------------------
+def m(a,b):
+  d={}
+  for i in a:
+    d[i]=True
+  for j in b:
+    if j in d:
+      return j
+  return j
+m([1,2,3],[2,3])
 --------------------------
 def m(l,x):
   for i in range(len(l)):
