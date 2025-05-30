@@ -19,6 +19,11 @@
 
 
 
+
+----------------
+def m(s):
+  return s[::-1]
+m("dslvnlsd")
 -------------------------------
 import numpy as np
 
