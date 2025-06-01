@@ -20,6 +20,11 @@
 
 
 
+
+------------------------
+def m(s):
+  return s[::-1]
+m("wdkljbcowebo")
 --------------------------
 import numpy as np
 
