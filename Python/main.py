@@ -20,6 +20,10 @@
 
 
 
+------------------------
+def m(s):
+  return s[::-1]
+m("w;lcvdnwpncwn")
 ------------------------------
 import numpy as np
 
