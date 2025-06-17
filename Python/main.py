@@ -9,8 +9,10 @@
 
 
 
-
-
+-----------------------
+def m(s):
+  return s[::-1]
+m("wcjnwoenxo")
 ------------------------------
 import numpy as np
 
