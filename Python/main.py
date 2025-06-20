@@ -17,8 +17,10 @@
 
 
 
-
-
+----------------------
+def m(s):
+  return s[::-1]
+m("wdlkjcnejno")
 -----------------------
 def m(l,x):
   for i in range(len(l)):
