@@ -15,8 +15,39 @@
 
 
 
+import numpy as np
 
+def mat_mul(a,b):
+  col_a = a.shape[1]
+  row_b = b.shape[0]
+  if col_a != row_b:
+    return "Not possible"
+  else:
+    r = np.zeros((col_a, row_b))
+    for i in range(col_a):
+      for j in range(row_b):
+        for k in range(col_a):
+          r[i][j] = r[i][j]+a[i][k]*b[k][j]
+    return r
 
+a = np.array([
+    [1,2],[2,3]
+])
+
+b = np.array([
+    [2,2],[3,3]
+])
+
+mat_mul(a,b)
+
+a = [1,2,3]
+b = [2,3,4]
+c = set(a).union(set(b))
+d = set(a).intersection(set(b))
+e = set(a).difference(set(b))
+print(c)
+print(d)
+print(e)
 
 a = [1,2]
 b = ['a','b']
