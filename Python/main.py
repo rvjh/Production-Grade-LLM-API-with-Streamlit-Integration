@@ -13,7 +13,10 @@
 
 
 
+def m(s):
+  return s[::-1]
 
+m("wdmc kw ")
 
 import numpy as np
 
