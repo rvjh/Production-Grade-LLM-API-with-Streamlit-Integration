@@ -3,6 +3,10 @@
 
 
 
+
+list(map(a,[1,2,3],[2,3]))
+
+
 a = lambda x,y : x*y
 a(10,2)
 
