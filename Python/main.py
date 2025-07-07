@@ -5,6 +5,12 @@
 
 
 
+def m(s):
+  return s[::-1]
+
+m("wcnown")
+
+
 import numpy as np
 
 
