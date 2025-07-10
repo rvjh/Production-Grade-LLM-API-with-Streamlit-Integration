@@ -3,6 +3,14 @@
 
 
 
+
+def m(s):
+  d={}
+  for i in s:
+    d[i]=s.count(i)
+  return d
+m("lc.dnlwn")
+
 def m(s):
   return s[::-1]
 m("mnscidwn")
