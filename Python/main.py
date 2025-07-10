@@ -1,3 +1,12 @@
+
+
+
+
+
+def m(s):
+  return s[::-1]
+m("mnscidwn")
+
 import numpy as np
 
 
