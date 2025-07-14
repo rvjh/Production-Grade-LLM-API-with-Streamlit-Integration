@@ -2,6 +2,14 @@
 
 
 
+
+def m(s):
+  if s==0 or s==1:
+    return 1
+  else:
+    return s*m(s-1)
+m(5)
+
 def m(l,x):
   for i in range(len(l)):
     for j in range(i+1, len(l)):
