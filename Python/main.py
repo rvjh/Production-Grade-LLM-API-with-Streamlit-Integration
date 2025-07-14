@@ -2,7 +2,12 @@
 
 
 
-
+def m(s):
+  d={}
+  for i in s:
+    d[i]=s.count(i)
+  return d
+m("wlkncwl")
 
 def m(a,b):
   d={}
