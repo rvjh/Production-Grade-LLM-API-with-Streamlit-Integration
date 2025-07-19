@@ -3,6 +3,11 @@
 
 
 
+
+
+a = lambda x,y : x*y
+a(10,2)
+
 def m(x):
   l=[0,1]
   if x==0:
