@@ -2,6 +2,14 @@
 
 
 def m(s):
+  d={}
+  for i in s:
+    d[i]=s.count(i)
+  return d
+m("wklcnwl")
+
+
+def m(s):
   return s[::-1]
 m("qkcjqekb")
 
