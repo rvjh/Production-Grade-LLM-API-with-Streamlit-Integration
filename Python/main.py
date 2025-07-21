@@ -2,6 +2,11 @@
 
 
 
+
+def m(s):
+  return s[::-1]
+m("dwlcnlwekdn")
+
 import numpy as np
 
 def mat_mul(a,b):
