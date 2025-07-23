@@ -1,7 +1,9 @@
 
 
 
-
+def m(s):
+  return s[::-1]
+m("alkhclq")
 
 import numpy as np
 
