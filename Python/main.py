@@ -2,7 +2,9 @@
 
 
 
-
+def m(s):
+  return s[::-1]
+m("wdjkcnwl")
 
 
 import numpy as np
