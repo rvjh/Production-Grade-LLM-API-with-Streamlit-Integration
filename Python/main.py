@@ -1,5 +1,11 @@
 
 
+
+
+def m(s):
+  return s[::-1]
+m("wdlcnwlkn")
+
 # Write your MySQL query statement below
 
 SELECT 
