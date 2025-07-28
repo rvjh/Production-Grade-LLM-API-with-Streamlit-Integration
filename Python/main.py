@@ -1,6 +1,14 @@
 
 
 
+
+def m(s):
+  d={}
+  for i in s:
+    d[i]=s.count(i)
+  return d
+m("dsvlknw")
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -23,6 +31,7 @@ a = np.array([
 b = np.array([
     [2,2],[4,4]
 ])
+
 
 mat_mul(a,b)
 
