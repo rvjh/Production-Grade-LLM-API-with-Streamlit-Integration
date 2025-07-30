@@ -1,5 +1,11 @@
 
 
+
+
+def m(s):
+  return s[::-1]
+m("wjkcbwo")
+
 import numpy as np
 
 def mat_mul(a,b):
