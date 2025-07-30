@@ -1,4 +1,21 @@
 
+
+
+
+
+
+
+class A:
+  def __init__(self,x,y):
+    self.x = x
+    self.y = y
+
+  def calculate_circumference(self):
+    return self.x * self.y
+
+a = A(10,2)
+a.calculate_circumference()
+
 import numpy as np
 
 def mat_mul(a,b):
