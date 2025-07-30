@@ -3,6 +3,19 @@
 
 
 
+## [1,2,3,4],7
+
+def tow_sum(nums, target):
+  d = {}
+  for i in range(len(nums)):
+    diff = target - nums[i]
+    if diff in d:
+      return [d[diff], i]
+    else:
+      d[nums[i]] = i
+  return None
+
+tow_sum([1,2,3,4],7)
 
 
 class A:
