@@ -1,4 +1,6 @@
 
+list(map(a,[1,2,3],[2,3]))
+
 
 a = lambda x,y : x*y
 a(10,2)
@@ -23,6 +25,7 @@ def per(n,r):
   if n>r:
     return m(n)/m(n-r)
 def com(n,r):
+
   if n>r:
     return m(n)/(m(r)*m(n-r))
 print(per(5,2))
