@@ -1,6 +1,14 @@
 
 
+def merge_sort(l):
+  if len(l) ==1:
+    return l
+  mid_index = int(len(l)/2)
+  left = merge_sort(l[:mid_index])
+  right = merge_sort(l[mid_index:])
+  return merge(left, right)
 
+merge_sort([4,2,4,1,3])
 
 def merge(l1, l2):
   com = []
