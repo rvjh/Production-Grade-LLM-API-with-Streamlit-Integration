@@ -1,5 +1,10 @@
 
 
+
+def m(s):
+  return s[::-1]
+m("wdjkhcowi")
+
 def merge_sort(l):
   if len(l) ==1:
     return l
