@@ -1,6 +1,34 @@
 
 
+def merge(l1, l2):
+  combined = []
+  i,j = 0,0
+  while i<len(l1) and j<len(l2):
+    if l1[i] < l2[j]:
+      combined.append(l1[i])
+      i += 1
+    else:
+      combined.append(l2[j])
+      j += 1
+  while i< len(l1):
+    combined.append(l1[i])
+    i += 1
+  while j< len(l2):
+    combined.append(l2[j])
+    j += 1
+  return combined
 
+merge([1,3,5,7],[2,4,6,8])   
+
+def merge_sort(l):
+  mid_index = int(len(l)/2)
+  if len(l)==1:
+    return l
+  left = merge_sort(l[:mid_index])
+  right = merge_sort(l[mid_index:])
+  return merge(left, right)
+
+merge_sort([4,2,4,1,3])
 
 a = [1,2,3]
 b = [3,4,5]
