@@ -1,3 +1,12 @@
+
+
+def m(s):
+  d={}
+  for i in s:
+    d[i]=s.count(i)
+  return d
+m("skbackjwb")
+
 class Node:
   def __init__(self,value):
     self.value = value
@@ -20767,6 +20776,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
