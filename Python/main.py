@@ -1,4 +1,11 @@
+\
 
+
+
+
+def m(s):
+  return s[::-1]
+m("dkbwjbeb")
 
 def m(s):
   d={}
@@ -20776,6 +20783,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
