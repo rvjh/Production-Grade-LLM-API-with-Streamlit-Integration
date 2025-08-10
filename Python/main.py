@@ -1,4 +1,14 @@
+class A:
+  def __init__(self,r):
+    self.r = r
+  def area(self):
+    return 3.14*self.r*self.r
 
+  def print_area(self):
+    print(self.area())
+
+a = A(10)
+a.print_area()
 
 a = [1,2,3]
 b = [3,4,5]
@@ -20859,6 +20869,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
