@@ -1,5 +1,15 @@
 
 
+
+import pandas as pd
+
+d = pd.DataFrame({
+    'a':[1,2,3],
+    'b':[2,3,4],
+    'c':[2,3,4]
+})
+d
+
 import pandas as pd
 
 d = pd.DataFrame({
@@ -20879,6 +20889,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
