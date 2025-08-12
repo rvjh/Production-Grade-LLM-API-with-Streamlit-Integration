@@ -1,5 +1,7 @@
 
-
+def m(s):
+  return s[::-1]
+m("kwencjwno")
 
 import pandas as pd
 
@@ -20889,6 +20891,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
