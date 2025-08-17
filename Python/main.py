@@ -1,6 +1,11 @@
 
 
 
+
+def m(s):
+  return s[::-1]
+m("wjkbwjb")
+
 a = [1,2,3]
 b = [3,4,5]
 c = set(a).union(set(b))
@@ -20978,6 +20983,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
