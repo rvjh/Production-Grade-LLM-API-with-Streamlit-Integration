@@ -1,5 +1,11 @@
 
 
+
+
+def m(s):
+  return s[::-1]
+m("wdcmknwkjldn")
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -21096,6 +21102,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
