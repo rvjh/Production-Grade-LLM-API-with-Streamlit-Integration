@@ -1,5 +1,10 @@
 
 
+
+
+a = lambda x,y : x*y
+a(10,2)
+
 a = lambda x: x[::-1]
 a("sjcnwodn")
 
@@ -21272,6 +21277,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
