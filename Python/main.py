@@ -1,6 +1,7 @@
 
 
-
+a = lambda x: x[::-1]
+a("sjcnwodn")
 
 def m(x):
   l=[0,1]
@@ -21271,6 +21272,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
