@@ -1,6 +1,9 @@
 
 
+def m(s):
+  return s[::-1]
 
+m("dsjlvlq")
 
 a = [1,2,3]
 b = [3,4,5]
@@ -21301,6 +21304,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
