@@ -1,6 +1,11 @@
 
 
-
+a = [1,2]
+b = ['a','b']
+c = dict(zip(a,b))
+print(c)
+c.update({3:'c'})
+print(c)
 
 from functools import reduce
 
@@ -21378,6 +21383,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
