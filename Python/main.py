@@ -1,5 +1,19 @@
 
 
+
+with cte as(
+select month(invoicedate) as month, description, sum(quantity*unitprice) as total_paid
+from online_retail
+group by month(invoicedate), description
+)
+, cte2 as(
+select month,
+description,total_paid,
+row_number() over(partition by month order by total_paid desc) rn
+from cte)
+select month,description,total_paid from cte2 where rn=1
+
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -21417,6 +21431,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
