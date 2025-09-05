@@ -1,6 +1,11 @@
 
 
 
+
+def m(s):
+  return s[::-1]
+m("wkjdhoweho")
+
 with cte as(
 select month(invoicedate) as month, description, sum(quantity*unitprice) as total_paid
 from online_retail
@@ -21431,6 +21436,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
