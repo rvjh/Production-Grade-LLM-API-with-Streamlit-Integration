@@ -1,3 +1,8 @@
+
+from functools import reduce
+
+reduce(l,[1,2,3,4])
+
 list(map(l,[1,2,3],[2,3]))
 
 l = lambda x,y:x*y
@@ -21728,6 +21733,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
