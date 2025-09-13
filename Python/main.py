@@ -1,4 +1,14 @@
 
+
+
+
+a = [1,2]
+b = ['a','b']
+c = dict(zip(a,b))
+print(c)
+c.update({3:'c'})
+print(c)
+
 from functools import reduce
 
 reduce(l,[1,2,3,4])
@@ -21733,6 +21743,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
