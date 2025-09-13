@@ -1,4 +1,4 @@
-
+list(map(l,[1,2,3],[2,3]))
 
 l = lambda x,y:x*y
 l(10,2)
@@ -21728,6 +21728,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
