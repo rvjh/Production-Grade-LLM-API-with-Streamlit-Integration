@@ -1,4 +1,13 @@
 
+
+
+a = [1,2]
+b = ['a','b']
+c = dict(zip(a,b))
+print(c)
+c.update({3:'c'})
+print(c)
+
 def m(x):
   l=[0,1]
   if x==0:
@@ -21955,6 +21964,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
