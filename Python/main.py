@@ -1,7 +1,12 @@
 
 
 
-
+def m(x):
+  if x==0 or x==1:
+    return 1
+  else:
+    return x*m(x-1)
+m(10)
 
 
 def m(l,x):
@@ -22038,6 +22043,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
