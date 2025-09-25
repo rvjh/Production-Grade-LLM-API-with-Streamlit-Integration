@@ -1,5 +1,20 @@
 
 
+
+
+
+
+def m(l,x):
+  d={}
+  for i in l:
+    diff = x - l[i]
+    if diff in d:
+      return [d[diff],i]
+    else:
+      d[l[i]]=i
+  return None
+m([1,2,3,4],7)
+
 def m(a,b):
   d={}
   for i in a:
@@ -21,6 +36,7 @@ m("wdlkvne")
 def m(s):
   return s[::-1]
 m("wkvnce")
+
 
 
 import numpy as np
@@ -22022,6 +22038,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
