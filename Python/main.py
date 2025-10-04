@@ -1,6 +1,22 @@
 
 
 
+with cte as( 
+select first_player player_id, first_score score from matches
+union all
+select second_player player_id, second_score score from matches)
+, cte1 as(
+select p.group_id, c.player_id, sum(c.score) score 
+from cte c
+inner join players p on c.player_id = p.player_id
+group by p.group_id,c.player_id)
+, cte2 as(
+select * 
+, row_number() over(partition by group_id order by score desc, player_id asc) rn
+from cte1)
+select group_id,player_id, score 
+from cte2
+where rn=1
 
 
 import numpy as np
@@ -22355,6 +22371,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
