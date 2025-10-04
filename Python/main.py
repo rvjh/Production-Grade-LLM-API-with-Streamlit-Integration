@@ -1,5 +1,7 @@
 
 
+a = lambda x,y : x*y
+a(10,2)
 
 
 def m(x):
@@ -22302,6 +22304,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
