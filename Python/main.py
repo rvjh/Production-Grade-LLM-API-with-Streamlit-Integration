@@ -1,5 +1,33 @@
 
 
+WITH numbered AS (
+    SELECT 
+        department_id,
+        salary,
+        ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY salary) AS rn_asc,
+        COUNT(*) OVER (PARTITION BY department_id) AS dept_count
+    FROM emp
+),
+median_rows AS (
+    SELECT 
+        department_id,
+        salary,
+        dept_count,
+        rn_asc
+    FROM numbered
+    WHERE 
+        -- Odd count: middle row
+        (dept_count % 2 = 1 AND rn_asc = (dept_count + 1) / 2)
+        -- Even count: two middle rows
+        OR (dept_count % 2 = 0 AND (rn_asc = dept_count / 2 OR rn_asc = dept_count / 2 + 1))
+)
+SELECT 
+    department_id,
+    AVG(salary * 1.0) AS median_salary
+FROM median_rows
+GROUP BY department_id
+ORDER BY department_id;
+
 
 with cte as( 
 select first_player player_id, first_score score from matches
@@ -22371,6 +22399,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
