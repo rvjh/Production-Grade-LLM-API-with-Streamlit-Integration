@@ -1,6 +1,13 @@
 
 
-
+a =[1,2,3]
+b = [3,4,5]
+c = set(a).union(set(b))
+d = set(a).intersection(set(b))
+e = set(a).difference(set(b))
+print(c)
+print(d)
+print(e)
 
 a = [1,2]
 b = ['a','b']
@@ -22483,6 +22490,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
