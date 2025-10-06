@@ -1,5 +1,11 @@
 
 
+
+
+def m(s):
+  return s[::-1]
+m("wdljmnclw")
+
 WITH numbered AS (
     SELECT 
         department_id,
@@ -22399,6 +22405,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
