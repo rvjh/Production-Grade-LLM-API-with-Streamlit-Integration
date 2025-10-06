@@ -1,4 +1,8 @@
 
+
+a = lambda x,y : x*y
+a(10,3)
+
 def m(x):
   l=[0,1]
   if x==0:
@@ -22463,6 +22467,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
