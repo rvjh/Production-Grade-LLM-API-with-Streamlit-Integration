@@ -1,7 +1,14 @@
 
 
 
-
+def per(n,r):
+  if n>r:
+    return m(n)/m(n-r)
+def com(n,r):
+  if n>r:
+    return m(n)/(m(r)*m(n-r))
+print(per(5,2))
+print(com(5,2))
 
 def m(x):
   if x==0:
@@ -22559,6 +22566,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
