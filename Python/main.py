@@ -1,11 +1,27 @@
 
 
-# Write your MySQL query statement below
+WITH cte AS (
+  SELECT
+    *,
+    LAG(temperature) OVER (ORDER BY recordDate) AS prev_temp,
+    LAG(recordDate)   OVER (ORDER BY recordDate) AS prev_date
+  FROM Weather
+),
+cte2 AS (
+  SELECT
+    *,
+    CASE
+      WHEN temperature > prev_temp
+       AND DATEDIFF(recordDate, prev_date) = 1
+      THEN id
+      ELSE NULL
+    END AS n
+  FROM cte
+)
+SELECT id
+FROM cte2
+WHERE n IS NOT NULL;
 
-with cte as(
-select *, lag(temperature) over(order by recordDate) prev_temp 
-from Weather)
-select id from cte where temperature > prev_temp
 
 import numpy as np
 
@@ -22643,6 +22659,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
