@@ -1,5 +1,12 @@
 
 
+# Write your MySQL query statement below
+
+with cte as(
+select *, lag(temperature) over(order by recordDate) prev_temp 
+from Weather)
+select id from cte where temperature > prev_temp
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -22636,6 +22643,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
