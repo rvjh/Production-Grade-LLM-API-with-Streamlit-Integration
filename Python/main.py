@@ -1,5 +1,10 @@
 
 
+
+def m(s):
+  return s[::-1]
+m("wdckjfwnjl")
+
 WITH cte AS (
   SELECT
     *,
@@ -22659,6 +22664,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
