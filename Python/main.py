@@ -1,4 +1,19 @@
 
+
+
+with s_info as(
+select *, rank() over(partition by seller_id order by order_date asc) rn
+from orders)
+, final_res as(
+select u.user_id as seller_id, s_info.*, i.item_brand, u.favorite_brand,
+case when i.item_brand =  u.favorite_brand then 'Yes' else 'No' end item_fav_brand
+from users u 
+left join s_info on s_info.seller_id = u.user_id and rn=2
+left join items i on i.item_id = s_info.item_id)
+select seller_id, item_fav_brand
+from final_res
+
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -22779,6 +22794,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
