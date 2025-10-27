@@ -1,6 +1,24 @@
 
 
 
+WITH team_counts AS (
+    SELECT 
+        m.name AS manager,
+        COUNT(e.id) AS team_size
+    FROM managers AS m
+    LEFT JOIN employees AS e 
+        ON m.id = e.manager_id
+    GROUP BY m.name
+)
+SELECT 
+    manager,
+    team_size
+FROM team_counts
+ORDER BY team_size DESC
+LIMIT 1;
+
+
+
 select name from neighborhoods
 where id not in
 (select neighborhood_id from users )
@@ -22914,6 +22932,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
