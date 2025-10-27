@@ -1,6 +1,11 @@
 
 
 
+def m(s):
+  return s[::-1]
+m("weljkfcnwej")
+
+
 with s_info as(
 select *, rank() over(partition by seller_id order by order_date asc) rn
 from orders)
@@ -22794,6 +22799,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
