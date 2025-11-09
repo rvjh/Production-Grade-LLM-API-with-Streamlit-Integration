@@ -1,5 +1,7 @@
 
-
+def m(s):
+  return s[::-1]
+m("wdlkncvwdn")
 
 WITH team_counts AS (
     SELECT 
@@ -22932,6 +22934,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
