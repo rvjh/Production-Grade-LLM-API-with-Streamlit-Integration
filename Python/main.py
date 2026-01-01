@@ -1,6 +1,33 @@
 
 
 
+select * from tickets;
+
+-- cretae business days b/w create and resolve days excluding weekends and public holidays
+
+select *,
+datediff(resolved_date, create_Date) actual_days,
+week(resolved_date) - week(create_date) no_of_week,
+datediff(resolved_date, create_Date) - 2*(week(resolved_date) - week(create_date)) business_days
+from tickets;
+
+with cte as(
+select ticket_id, create_date, resolved_date, count(holiday_date) no_of_holidays 
+from tickets left join holidays
+on holiday_date between create_date and resolved_date
+group by ticket_id, create_date, resolved_date)
+, cte1 as(
+select *,
+datediff(resolved_date, create_Date) actual_days,
+week(resolved_date) - week(create_date) no_of_week,
+datediff(resolved_date, create_Date) - 2*(week(resolved_date) - week(create_date)) business_days
+from cte)
+select ticket_id, 
+	   create_date, 
+       resolved_date,
+       (business_days-no_of_holidays) actual_bus_days
+from cte1
+
 
 
 select * from events;
@@ -23352,6 +23379,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
