@@ -2,6 +2,32 @@
 
 
 
+
+select * from events;
+
+-- swimmers who won only gold medals
+
+SELECT gold AS player_name, count(*)  no_medal
+FROM events
+where gold not in (select silver from events union all select bronze from events)
+group by gold;
+
+
+-------------
+
+with cte as(
+select gold player_name,'gold' medal_type from events
+union all
+select silver player_name, 'silver' medal_type from events 
+union all 
+select bronze player_name, 'bronze' medal_type from events)
+select player_name,
+count(1) gold_medal_cnt
+from cte
+group by player_name
+having count(distinct medal_type)=1 and max(medal_type)='gold'
+
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -23326,6 +23352,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
