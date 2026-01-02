@@ -1,5 +1,10 @@
 
 
+
+def m(s):
+  return s[::-1]
+m("Cdwcnjn")
+
 SELECT 
     *,
     SUBSTRING_INDEX(filter_room_types, ',', 1) AS room_type_1, 
@@ -23407,6 +23412,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
