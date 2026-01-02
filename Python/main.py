@@ -1,5 +1,8 @@
 
 
+a = lambda x,y: x*y
+a(10,2)
+
 a = [1,2]
 b = ['a','b']
 c = dict(zip(a,b))
@@ -23478,6 +23481,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
