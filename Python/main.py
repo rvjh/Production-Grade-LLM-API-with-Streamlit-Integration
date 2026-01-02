@@ -1,5 +1,10 @@
 
-
+def m(s):
+  d={}
+  for i in s:
+    d[i]=s.count(i)
+  return d
+m("dwm cjk")
 
 def m(s):
   return s[::-1]
@@ -23412,6 +23417,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
