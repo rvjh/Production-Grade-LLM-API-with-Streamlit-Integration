@@ -1,13 +1,10 @@
 
 
 
-select * from hospital;
-
--- total no of people present in the hospital
 with cte as(
 SELECT emp_id,
 	   max(CASE WHEN action = 'in'  THEN time END) AS in_time,
-	   min(CASE WHEN action = 'out' THEN time END) AS out_time
+	   max(CASE WHEN action = 'out' THEN time END) AS out_time
 FROM hospital
 GROUP BY emp_id)
 select count(*) no_of_people
@@ -23393,6 +23390,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
