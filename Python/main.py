@@ -1,6 +1,20 @@
 
 
 
+select * from hospital;
+
+-- total no of people present in the hospital
+with cte as(
+SELECT emp_id,
+	   max(CASE WHEN action = 'in'  THEN time END) AS in_time,
+	   min(CASE WHEN action = 'out' THEN time END) AS out_time
+FROM hospital
+GROUP BY emp_id)
+select count(*) no_of_people
+from cte
+where in_time > out_time or out_time is null
+
+
 select * from tickets;
 
 -- cretae business days b/w create and resolve days excluding weekends and public holidays
@@ -23379,6 +23393,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
