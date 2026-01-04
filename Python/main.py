@@ -1,6 +1,15 @@
 
 
 
+select e1.name, e1.dept_id, e1.salary, e2.name, e2.dept_id, e2.salary
+from emp_salary e1 
+inner join emp_salary e2 
+on e1.dept_id = e1.dept_id 
+	and e1.salary = e2.salary 
+    and e1.emp_id > e2.emp_id 
+    and e2.dept_id is not null
+
+
 a = [1,2]
 b = ['a','b']
 c = dict(zip(a,b))
@@ -23598,6 +23607,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
