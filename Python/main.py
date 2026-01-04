@@ -1,6 +1,16 @@
 
 
 
+with cte as(    
+select dept_id, salary
+from emp_salary
+group by dept_id, salary
+having count(1)>1)
+select emp_salary.emp_id, emp_salary.name, cte.dept_id, emp_salary.salary
+from emp_salary
+inner join cte on cte.dept_id = emp_salary.dept_id and emp_salary.salary = cte.salary
+order by cte.dept_id
+
 select e1.name, e1.dept_id, e1.salary, e2.name, e2.dept_id, e2.salary
 from emp_salary e1 
 inner join emp_salary e2 
@@ -23607,6 +23617,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
