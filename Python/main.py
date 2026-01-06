@@ -1,5 +1,7 @@
 
-
+def m(s):
+  return s[::-1]
+m("kcndlnln")
 
 with cte as(    
 select dept_id, salary
@@ -23617,6 +23619,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
