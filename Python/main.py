@@ -1,5 +1,10 @@
 
 
+
+def m(s):
+  return s[::-1]
+m("adkjbckbj")
+
 def m(a,b):
   d={}
   for i in a:
@@ -23637,6 +23642,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
