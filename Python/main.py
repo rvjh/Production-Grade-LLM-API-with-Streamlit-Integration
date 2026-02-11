@@ -2,6 +2,16 @@
 
 
 
+def m(a,b):
+  d={}
+  for i in a:
+    d[i]=True
+  for j in b:
+    if j in d:
+      return j
+  return None
+m([1,2,3,4],[1,2])
+
 def m(s):
   d={}
   for i in s:
@@ -23650,6 +23660,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
