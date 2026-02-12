@@ -1,6 +1,8 @@
 
 
-
+def m(s):
+  return s[::-1]
+m("sdjvbskdjb")
 
 import numpy as np
 
@@ -23754,6 +23756,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
