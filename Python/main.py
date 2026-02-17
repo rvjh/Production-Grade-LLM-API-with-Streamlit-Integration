@@ -1,6 +1,8 @@
 
 
-
+def m(s):
+  return s[::-1]
+m("dcbdb")
 
 import numpy as np
 
@@ -23984,6 +23986,7 @@ print(transpose_arr)
 print(flatten_arr)
 
 -------------------------------------
+
 
 
 
