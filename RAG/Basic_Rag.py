@@ -1,3 +1,11 @@
+
+a = [1,2]
+b = ['a','b']
+c = dict(zip(a,b))
+print(c)
+c.update({3:'c'})
+print(c)
+
 a = [1,2,3]
 b = [3,4,5]
 c = set(a).union(set(b))
@@ -74,6 +82,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
