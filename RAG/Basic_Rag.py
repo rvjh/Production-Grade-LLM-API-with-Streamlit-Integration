@@ -1,6 +1,25 @@
 
 
 
+def m(x):
+  l=[0,1]
+  if x==0:
+    return l[0]
+  elif x==1:
+    return l
+  else:
+    a,b = 0,1
+    for i in range(2,x):
+      c = a + b
+      l.append(c)
+      a = b
+      b = c
+  return l
+
+m(10)
+
+
+
 a = lambda x,y: x*y
 a(10,2)
 
@@ -91,6 +110,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
