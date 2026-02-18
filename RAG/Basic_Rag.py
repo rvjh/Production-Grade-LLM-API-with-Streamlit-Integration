@@ -1,7 +1,23 @@
 
 
 
+----- ----------------
 
+select * from entries;
+
+
+with cte as(
+select name, floor, count(1) no_of_floor_visit, 
+rank() over(partition by name order by count(1) desc) rn
+from entries
+group by name, floor)
+, cte2 as(
+select name, floor as most_visited_floor 
+from cte where rn=1)
+select e.name, count(*) total_visits,  c.most_visited_floor,
+group_concat(e.resources) item_used
+from entries e inner join cte2 c on e.name = c.name
+group by e.name, c.most_visited_floor;
 
 select * from orders3;
 
@@ -209,6 +225,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
