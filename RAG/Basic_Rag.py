@@ -1,5 +1,31 @@
 
 
+
+import numpy as np
+
+def mat_mul(a,b):
+  col_a = a.shape[1]
+  row_b = b.shape[0]
+  if row_b != col_a:
+    return "not possible"
+  else:
+    r = np.zeros((row_b, col_a))
+    for i in range(col_a):
+      for j in range(row_b):
+        for k in range(col_a):
+          r[i][j] = r[i][j] + a[i][k]*b[k][j]
+    return r
+
+a = np.array([
+    [1,2],[2,3]
+])
+
+b = np.array([
+    [1,2],[2,3]
+])
+
+mat_mul(a,b)
+
 def m(s):
   return s[::-1]
 m("adlkcnlak")
@@ -162,6 +188,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
