@@ -1,6 +1,27 @@
 
 
 
+
+
+select * from orders3;
+
+-- 20% products which are giving 80% of sales
+
+-- select sum(sales) * 0.8 from orders3   -- 1501582.5083043575
+
+with cte as(
+select product_id, sum(sales) total_sales
+from orders3
+group by product_id
+order by sum(sales) desc)
+, cte2 as(
+select * 
+, sum(total_sales) over(order by total_sales desc rows between unbounded preceding and 0 preceding) running_sum
+, 0.8 * sum(total_sales) over() 80_per_sell
+from cte)
+select * from cte2
+where  running_sum  <= 80_per_sell
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -188,6 +209,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
