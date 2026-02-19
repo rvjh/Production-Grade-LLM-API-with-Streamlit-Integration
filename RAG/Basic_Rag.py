@@ -1,5 +1,6 @@
 
-
+a = lambda x,y:x*y
+a(10,2)
 
 def m(x):
   l=[0,1]
@@ -290,6 +291,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
