@@ -1,6 +1,29 @@
 
 
 
+
+select * from person;
+select * from friend;
+
+-- person, id, no of friends, sum of marks of friends > 100
+
+
+select * from person;
+select * from friend;
+
+with cte as(
+select f.personid, 	f.friendid, p.score friend_score
+from person p
+inner join friend f on p.personid = f.friendid)
+, cte2 as(
+select personid, count(*) no_of_frnds,
+sum(friend_score) total_sc
+from cte
+group by personid)
+select cte2.personid,person.name, cte2.no_of_frnds, cte2.total_sc
+from cte2 inner join person on cte2.personid = person.personid
+where total_sc > 100;
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -457,6 +480,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
