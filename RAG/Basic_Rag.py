@@ -1,6 +1,14 @@
 
 
-
+select t.request_at,
+count(case when t.status in ("cancelled_by_client","cancelled_by_driver") then 1 end) cancelled_trip_cnt,
+count(1) total_trip,
+count(case when t.status in ("cancelled_by_client","cancelled_by_driver") then 1 end) / count(1) cancelled_per
+from trips_1 t
+inner join users_3 u on t.client_id = u.users_id
+inner join users_3 d on t.driver_id = d.users_id
+where d.banned = 'No' and u.banned = 'No'
+group by t.request_at
 
 select * from person;
 select * from friend;
@@ -480,6 +488,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
