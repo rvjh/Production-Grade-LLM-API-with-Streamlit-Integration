@@ -1,4 +1,9 @@
 
+
+def m(S):
+  return S[::-1]
+m("ajcljqglc")
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -337,6 +342,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
