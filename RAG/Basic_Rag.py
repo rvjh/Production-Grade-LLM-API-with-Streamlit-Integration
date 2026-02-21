@@ -1,6 +1,26 @@
 
 
+select * from players;
+select * from matches;
 
+--  find winner in eahc grp who scored max no of points winin groupd 
+-- in case tie lower player id wins 
+
+with cte as(
+select player, sum(total_score) score
+from(
+select first_player player,first_score total_score from matches
+union all
+select second_player player, second_score total_score from matches) A
+group by player)
+, cte2 as(
+select players.player_id, players.group_id, cte.score
+from players inner join cte on players.player_id = cte.player)
+, cte3 as(
+select * 
+, rank() over(partition by group_id order by score desc, player_id asc) rn
+from cte2)
+select * from cte3 where rn=1;
 
 import numpy as np
 
@@ -606,6 +626,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
