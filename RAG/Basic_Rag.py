@@ -1,5 +1,10 @@
 
 
+
+def m(s):
+  return s[::-1]
+m("dscwldnl")
+
 select t.request_at,
 count(case when t.status in ("cancelled_by_client","cancelled_by_driver") then 1 end) cancelled_trip_cnt,
 count(1) total_trip,
@@ -488,6 +493,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
