@@ -1,5 +1,22 @@
 
 
+select * from tasks;
+
+with cte as(
+SELECT t.*,
+DATE_ADD(t.date_value, INTERVAL -t.rn DAY) AS adjusted_date
+FROM (
+    SELECT tasks.*,
+	ROW_NUMBER() OVER (PARTITION BY state ORDER BY date_value) AS rn
+    FROM tasks
+) AS t
+ORDER BY t.date_value)
+select start_date, end_date, state from(
+select adjusted_date, state, min(date_value) start_date, max(date_value) end_date
+from cte
+group by adjusted_date, state) A
+order by start_date
+
 
 
 select * from orders_1;
@@ -649,6 +666,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
