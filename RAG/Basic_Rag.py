@@ -1,5 +1,28 @@
 
 
+
+
+select * from orders_1;
+select * from users_1;
+select * from items_1;
+
+
+with cte as(
+select o.*, i.item_brand 
+from orders_1 o
+inner join items_1 i on o.item_id = i.item_id)
+, cte2 as(
+select *,
+row_number() over(partition by users_1.user_id order by cte.order_date) rn
+from cte 
+right join users_1 on cte.seller_id = users_1.user_id)
+, cte3 as(
+select seller_id, item_brand, favorite_brand
+from cte2 where rn=2 and item_brand = favorite_brand)
+select users_1.user_id,
+case when cte3.seller_id is null then 'No' else 'Yes' end item_fav_brand
+from users_1 left join cte3 on users_1.user_id = cte3.seller_id;
+
 select * from players;
 select * from matches;
 
@@ -626,6 +649,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
