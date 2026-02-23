@@ -1,4 +1,21 @@
 
+-- total sales by year
+
+select * from sales_1;
+
+WITH RECURSIVE cte AS (
+    SELECT MIN(period_start) AS dates, MAX(period_end) AS max_date
+    FROM sales_1
+    UNION ALL
+    SELECT DATE_ADD(dates, INTERVAL 1 DAY) AS dates, max_date
+    FROM cte
+    WHERE dates < max_date)
+SELECT product_id, year(dates) report_year, sum(average_daily_sales) total_sales
+FROM cte INNER JOIN sales_1 on dates between period_start and period_end
+group by product_id, year(dates)
+order by product_id, year(dates);
+
+
 
 -- recursive cte
 
@@ -939,6 +956,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
