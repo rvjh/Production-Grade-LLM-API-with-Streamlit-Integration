@@ -1,4 +1,38 @@
 
+
+
+
+select * from spending;
+
+with cte as(
+select spend_date, user_id, max(platform) platform, sum(amount) amount
+from spending
+group by user_id, spend_date having count(distinct platform) = 1
+union all
+select spend_date, user_id, "both" platform, sum(amount) amount
+from spending
+group by user_id, spend_date having count(distinct platform) = 2)
+select spend_date, platform, sum(amount) total_amt, count(distinct user_id) no_of_users
+from cte 
+group by spend_date, platform;
+
+
+with cte as(
+select spend_date, user_id, max(platform) platform, sum(amount) amount
+from spending
+group by user_id, spend_date having count(distinct platform) = 1
+union all
+select spend_date, user_id, "both" platform, sum(amount) amount
+from spending
+group by user_id, spend_date having count(distinct platform) = 2
+union all
+select distinct spend_date, null as user_id, "both" platform, 0 amount
+from spending
+)
+select spend_date, platform, sum(amount) total_amt, count(distinct user_id) no_of_users
+from cte 
+group by spend_date, platform;
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -898,6 +932,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
