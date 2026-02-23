@@ -1,6 +1,17 @@
 
 
 
+def m(l,x):
+  d={}
+  for i in l:
+    diff = x - l[i]
+    if diff in d:
+      return [d[diff],i]
+    else:
+      d[l[i]] = i
+
+m([1,2,3],5)
+
 def m(a,b):
   d={}
   for i in a:
@@ -805,6 +816,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
