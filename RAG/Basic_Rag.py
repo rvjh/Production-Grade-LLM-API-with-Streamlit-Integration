@@ -2,6 +2,26 @@
 
 
 
+
+
+
+
+select * from orders_2;
+select * from products_2;
+
+SELECT 
+    concat(p1.name,p2.name)  product,
+    COUNT(1) AS freq
+FROM orders_2 o1
+INNER JOIN orders_2 o2 
+    ON o1.order_id = o2.order_id
+INNER JOIN products_2 p1 
+    ON o1.product_id = p1.id
+INNER JOIN products_2 p2 
+    ON o2.product_id = p2.id
+WHERE o1.product_id > o2.product_id
+GROUP BY p1.name, p2.name;
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -1074,6 +1094,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
