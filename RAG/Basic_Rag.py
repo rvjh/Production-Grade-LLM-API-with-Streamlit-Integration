@@ -1,4 +1,9 @@
 
+
+def m(s):
+  return m(::-1)
+m("ckhciwii")
+
 -- total sales by year
 
 select * from sales_1;
@@ -956,6 +961,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
