@@ -4,7 +4,18 @@
 
 
 
-
+SELECT -- u.*, e.*, datediff(e.access_date, u.join_date) no_of_days
+count(distinct u.user_id) no_of_users,
+count(distinct case when datediff(e.access_date, u.join_date) <= 30 then u.user_id end) prime_members,
+count(distinct case when datediff(e.access_date, u.join_date) <= 30 then u.user_id end) /count(distinct u.user_id)*100 per_convert
+FROM users_2 u
+LEFT JOIN events_2 e 
+    ON u.user_id = e.user_id 
+   AND e.type = 'P'
+WHERE u.user_id IN (
+    SELECT user_id 
+    FROM events_2 
+    WHERE type = 'Music')
 
 select * from orders_2;
 select * from products_2;
@@ -1094,6 +1105,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
