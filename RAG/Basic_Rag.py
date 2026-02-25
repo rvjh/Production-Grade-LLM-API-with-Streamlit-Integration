@@ -4,7 +4,15 @@
 
 
 
-
+SELECT 
+    MONTH(last_month.order_date) AS month_date,
+    COUNT(DISTINCT last_month.cust_id) AS total_cust_churn
+FROM transactions AS last_month
+LEFT JOIN transactions AS this_month
+    ON this_month.cust_id = last_month.cust_id
+   AND TIMESTAMPDIFF(MONTH, last_month.order_date, this_month.order_date) = 1
+WHERE this_month.cust_id IS NULL
+GROUP BY MONTH(last_month.order_date);
 
 select * from transactions;
 
@@ -1227,6 +1235,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
