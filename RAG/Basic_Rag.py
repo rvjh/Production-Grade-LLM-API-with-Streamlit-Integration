@@ -2,7 +2,9 @@
 
 
 
-
+def m(s):
+  return s[::-1]
+m("alhlahl")
 
 SELECT -- u.*, e.*, datediff(e.access_date, u.join_date) no_of_days
 count(distinct u.user_id) no_of_users,
@@ -1105,6 +1107,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
