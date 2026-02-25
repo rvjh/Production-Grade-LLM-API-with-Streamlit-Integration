@@ -1,5 +1,19 @@
 
 
+
+
+
+
+
+
+select * from transactions;
+
+select month(this_month.order_date) month_date, count(distinct last_month.cust_id) total_cust
+from transactions this_month left join transactions last_month
+on this_month.cust_id = last_month.cust_id and (month(last_month.order_date)- month(this_month.order_date)) = 1 
+group by month(this_month.order_date);
+
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -1213,6 +1227,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
