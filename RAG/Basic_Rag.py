@@ -1,5 +1,27 @@
 
 
+
+
+
+select * from billings;
+select * from hoursworked;
+
+-- total charges as per billing rate
+
+
+select * from billings;
+select * from hoursworked;
+
+with cte as(
+SELECT *,
+LEAD(DATE_ADD(bill_date, INTERVAL -1 DAY), 1, '9999-12-31') 
+OVER (PARTITION BY emp_name ORDER BY bill_date ASC) AS bill_date_end
+FROM billings)
+select cte.emp_name, sum(cte.bill_rate * hoursworked.bill_hrs) total_bill
+from cte inner join hoursworked on cte.emp_name = hoursworked.emp_name
+where hoursworked.work_date between cte.bill_date and cte.bill_date_end
+group by cte.emp_name;
+
 with cte as(
 select * 
 , count(1) over(partition by username) total_activity
@@ -1351,6 +1373,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
