@@ -1,6 +1,12 @@
 
 
-
+with cte as(
+select * 
+, count(1) over(partition by username) total_activity
+, rank() over(partition by username order by startdate) rnk
+from useractivity)
+select * from cte
+where total_activity =1 or rnk=2
 
 import numpy as np
 
@@ -1345,6 +1351,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
