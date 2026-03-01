@@ -2,7 +2,12 @@
 
 
 
-
+def m(s):
+  d={}
+  for i in s:
+    d[i] = s.count(i)
+  return d
+m("dclskdnw")
 
 def m(s):
   return s[::-1]
@@ -1604,6 +1609,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
