@@ -1,5 +1,64 @@
 
 
+
+
+
+select * from activity;
+
+-- total active users per day
+
+select event_date, count(distinct user_id) no_of_active_users
+from activity
+group by event_date;
+
+-- total active users each week
+
+select week(event_date)+1 week_number, count(distinct user_id) week_no
+from activity
+group by week(event_date)+1;
+
+-- users who purchase on the same day and installed the app
+
+select  event_date, count(new_user) no_of_users from(
+select user_id, event_date,
+case when count(distinct event_name) = 2 then user_id else null end new_user
+from activity 
+group by user_id, event_date) A
+group by event_date;
+
+
+-- percentage of paid users in India, USA others tag as others
+
+WITH cte AS (
+SELECT *,
+CASE WHEN country = 'India' OR country = 'USA' THEN country ELSE 'Others' END AS country_group
+FROM activity
+WHERE event_name = 'app-purchase'),
+total AS (
+SELECT COUNT(DISTINCT user_id) AS usr_cnt FROM cte)
+SELECT c.country_group, COUNT(*) AS per_users, t.usr_cnt, COUNT(*)/t.usr_cnt *100 per_users
+FROM cte c
+CROSS JOIN total t
+GROUP BY c.country_group, t.usr_cnt;
+
+-- users who installed app on a given date, app purchased on very next day
+-- day wise count
+
+with prev_events as(
+select * ,
+lag(event_name,1) over(partition by user_id order by event_date) prev_event_name,
+lag(event_date,1) over(partition by user_id order by event_date) prev_event_date
+from activity)
+select *
+from prev_events
+where event_name = 'app-purchase' 
+and prev_event_name = 'app-installed' 
+and datediff(event_date, prev_event_date)=1;
+
+
+
+
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -1704,6 +1763,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
