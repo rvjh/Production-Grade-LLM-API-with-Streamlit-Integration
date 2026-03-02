@@ -1,5 +1,18 @@
 
 
+
+
+def per(n,r):
+  if n>r:
+    return m(n)/m(n-r)
+def com(n,r):
+  if n>r:
+    return m(n)/(m(r)*m(n-r))
+
+print(per(5,2))
+
+print(com(5,2))
+
 def m(x: int)-> int:
   """factorials on a given number"""
 
@@ -1803,6 +1816,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
