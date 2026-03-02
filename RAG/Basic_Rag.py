@@ -8,7 +8,7 @@
 
 select * from bms;
 
-
+-- using lead lag
 WITH cte AS (
     SELECT seat_no,
            LAG(is_empty, 1) OVER (ORDER BY seat_no) AS prev_seat_1,
@@ -28,6 +28,18 @@ SELECT *,
 FROM cte)
 select * from cte2 
 where emp_seat_no is not null;
+
+-- using adv agg
+select * from(
+SELECT *,
+sum(case when is_empty='Y' then 1 else 0 end) OVER (ORDER BY seat_no rows between 2 preceding and current row) AS prev_2,
+sum(case when is_empty='Y' then 1 else 0 end) OVER (ORDER BY seat_no rows between 1 preceding and 1 following) AS prev_next_1,
+sum(case when is_empty='Y' then 1 else 0 end) OVER (ORDER BY seat_no rows between current row and 2 following) AS next_2
+FROM bms) A
+where prev_2=3 or prev_next_1=3 or next_2=3
+
+--
+
 
 import numpy as np
 
@@ -1905,6 +1917,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
