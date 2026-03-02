@@ -38,7 +38,18 @@ sum(case when is_empty='Y' then 1 else 0 end) OVER (ORDER BY seat_no rows betwee
 FROM bms) A
 where prev_2=3 or prev_next_1=3 or next_2=3
 
---
+-- using normal logic
+
+with cte as(
+select * 
+, row_number() over(order by seat_no) rn
+, seat_no - row_number() over(order by seat_no) d
+from bms
+where is_empty = 'Y')
+, cte2 as(
+select d, count(1) from cte
+group by d having count(1)>=3)
+select * from cte where d in( select d from cte2)
 
 
 import numpy as np
@@ -1917,6 +1928,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
