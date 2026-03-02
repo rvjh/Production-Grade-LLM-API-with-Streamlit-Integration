@@ -1,6 +1,34 @@
 
 
 
+
+
+
+-- 3/more consecutive empty seats
+
+select * from bms;
+
+
+WITH cte AS (
+    SELECT seat_no,
+           LAG(is_empty, 1) OVER (ORDER BY seat_no) AS prev_seat_1,
+           LAG(is_empty, 2) OVER (ORDER BY seat_no) AS prev_seat_2,
+           LEAD(is_empty, 1) OVER (ORDER BY seat_no) AS next_seat_1,
+           LEAD(is_empty, 2) OVER (ORDER BY seat_no) AS next_seat_2,
+           is_empty
+    FROM bms
+), cte2 as(
+SELECT *,
+       CASE 
+           WHEN is_empty = 'Y' AND prev_seat_1 = 'Y' AND prev_seat_2 = 'Y'
+             OR is_empty = 'Y' AND prev_seat_1 = 'Y' AND next_seat_1 = 'Y'
+             OR is_empty = 'Y' AND next_seat_1 = 'Y' AND next_seat_2 = 'Y'
+           THEN seat_no
+       END AS emp_seat_no
+FROM cte)
+select * from cte2 
+where emp_seat_no is not null;
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -1877,6 +1905,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
