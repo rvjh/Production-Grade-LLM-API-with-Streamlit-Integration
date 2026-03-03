@@ -2,7 +2,15 @@
 
 
 
+select * from stores;
 
+-- find missing quater
+
+-- using affregation
+SELECT store,
+CONCAT('Q', 10 - SUM(CAST(RIGHT(quarter, 1) AS UNSIGNED))) AS missing_quarter
+FROM stores
+GROUP BY store;
 
 import numpy as np
 
@@ -2046,6 +2054,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
