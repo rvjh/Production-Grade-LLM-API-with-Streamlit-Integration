@@ -2,7 +2,9 @@
 
 
 
-
+def m(s):
+  return s[::-1]
+m("nclaksncxlnal")
 
 -- 3/more consecutive empty seats
 
@@ -1928,6 +1930,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
