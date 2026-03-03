@@ -3,7 +3,13 @@
 
 
 
-
+with cte as(
+select student_id,
+max(case when subject = 'Chemistry' then marks end) chem_marks,
+max(case when subject = 'Physics' then marks end) phy_marks
+from exams
+group by student_id)
+select * from cte where chem_marks = phy_marks;
 
 WITH RECURSIVE cte AS (
     SELECT DISTINCT store, 1 AS q_no
@@ -2078,6 +2084,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
