@@ -1,7 +1,11 @@
 
 
 
-
+select student_id 
+from exams
+where subject in ('Chemistry','Physics') 
+group by student_id
+having count(distinct subject)=2 and count(distinct marks)=1
 
 with cte as(
 select student_id,
@@ -2084,6 +2088,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
