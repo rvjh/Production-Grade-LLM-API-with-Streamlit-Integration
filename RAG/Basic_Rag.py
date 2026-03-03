@@ -1,6 +1,8 @@
 
 
 
+from functools import reduce
+reduce(a,[1,2,3,4])
 
 a = lambda x,y : x*y
 a(10,3)
@@ -1999,6 +2001,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
