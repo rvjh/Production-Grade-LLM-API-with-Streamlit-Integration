@@ -2,6 +2,30 @@
 
 
 
+
+
+
+WITH RECURSIVE cte AS (
+    SELECT DISTINCT store, 1 AS q_no
+    FROM stores
+    UNION ALL
+    SELECT store, q_no + 1
+    FROM cte
+    WHERE q_no < 4
+),
+q AS (
+    SELECT store, CONCAT('Q', q_no) AS q_no
+    FROM cte
+)
+SELECT q.store,
+       q.q_no missing_quarter
+FROM q
+LEFT JOIN stores s
+       ON q.store = s.store
+      AND q.q_no = s.quarter
+where s.quarter is null
+ORDER BY q.store, q.q_no;
+
 select * from stores;
 
 -- find missing quater
@@ -2054,6 +2078,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
