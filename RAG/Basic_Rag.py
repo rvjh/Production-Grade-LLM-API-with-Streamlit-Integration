@@ -2,7 +2,21 @@
 
 
 
+-- citirs where covid cases are increasingly continiously
 
+
+WITH cte AS (
+    SELECT *,
+           RANK() OVER (PARTITION BY city ORDER BY days) AS rn,
+           RANK() OVER (PARTITION BY city ORDER BY cases) AS rn_cases,
+           CAST(RANK() OVER (PARTITION BY city ORDER BY days) AS SIGNED)
+           - CAST(RANK() OVER (PARTITION BY city ORDER BY cases) AS SIGNED) AS r_diff
+    FROM covid
+)
+SELECT city
+FROM cte
+group by city
+having count(distinct r_diff) = 1;
 
 import numpy as np
 
@@ -2227,6 +2241,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
