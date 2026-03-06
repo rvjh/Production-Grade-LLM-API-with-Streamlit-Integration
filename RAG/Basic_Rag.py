@@ -1,6 +1,31 @@
 
 
 
+
+
+
+response = {
+    "open_ai": {
+        "gpt3.5": {"total_token": 30, "cost": 4},
+        "gpt4o": {"total_token": 10, "cost": 2}
+    },
+    "amthropic": {
+        "gamma2.9": {"total_token": 15, "cost": 2}
+    }
+}
+
+
+def m(r):
+  d = {}
+  for provider, model in r.items():
+    for i,j in model.items():
+      total = ["total_token"]*j["cost"]
+      key = f"{provider}/{i}"
+      d[key] = total
+  return d
+
+m(response)
+
 select student_id 
 from exams
 where subject in ('Chemistry','Physics') 
@@ -2088,6 +2113,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
