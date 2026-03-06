@@ -2,7 +2,9 @@
 
 
 
-
+def m(s):
+  return s[::-1]
+m("cacnlwl")
 
 response = {
     "open_ai": {
@@ -2113,6 +2115,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
