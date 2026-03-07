@@ -1,5 +1,24 @@
 
 
+
+
+
+
+-- company with atleast 2 users who speaks english german both
+
+
+select * from company_users;
+
+select company_id, count(*) no_of_users
+from(
+select company_id, user_id,count(1) 
+from company_users
+where language in ('English','German')
+group by company_id, user_id
+having count(1)=2) A
+group by company_id
+having count(*)>=2
+
 import numpy as np
 
 def mat_mul(a,b):
@@ -2374,6 +2393,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
