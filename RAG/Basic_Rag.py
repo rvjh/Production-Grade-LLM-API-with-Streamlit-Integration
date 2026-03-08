@@ -1,6 +1,29 @@
 
 
 
+
+
+select * from products;
+select * from customer_budget;
+
+-- custid, budget, no_of_products, list of products
+
+select * from products;
+select * from customer_budget;
+
+
+with c_cost as(
+select *
+, sum(cost) over(order by product_id) c_sum
+from products)
+, c as(
+select * 
+from customer_budget left join c_cost on c_cost.c_sum <= customer_budget.budget)
+select customer_id, budget, count(*) no_of_products, group_concat(product_id) list_products
+from c
+group by customer_id, budget;
+
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
@@ -2530,6 +2553,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
