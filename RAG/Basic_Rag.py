@@ -3,6 +3,23 @@
 
 
 
+
+
+select * from subscriber;
+
+-- total no of messages exchanged between each person per day
+
+with cte as(
+select sms_date,
+case when sender < receiver then sender else receiver end p1,
+case when sender > receiver then sender else receiver end p2,
+sms_no
+from subscriber )
+select sms_date, p1, p2, sum(sms_no) total_sms_exchanged
+from cte
+group by sms_date, p1, p2;
+
+
 select * from products;
 select * from customer_budget;
 
@@ -2553,6 +2570,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
