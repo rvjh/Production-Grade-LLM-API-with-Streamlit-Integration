@@ -2,7 +2,19 @@
 
 
 
+-- sql query to get second highest and second lowest marks in each sub
+-- sub second_high	second_lowest
 
+with cte as(
+select subject, marks
+, rank() over(partition by subject order by marks desc) r_desc
+, rank() over(partition by subject order by marks asc) r_asc
+from students)
+select subject
+, max(case when r_desc=2 then marks else null end) second_highest_marks
+, max(case when r_asc=2 then marks else null end) second_lowest_marks
+from cte
+group by subject;
 
 select
 count(distinct case when marks > 90 then studentid else null end)/ count(distinct studentid) p 
@@ -2719,6 +2731,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
