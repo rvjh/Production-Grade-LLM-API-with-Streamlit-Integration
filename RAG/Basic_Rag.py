@@ -2,6 +2,17 @@
 
 
 
+
+-- largest order by value for each salesperson and display order details
+
+select * from int_orders;
+
+with cte as(
+select *,
+rank() over(partition by salesperson_id order by amount desc) rn
+from int_orders)
+select * from cte where rn=1;
+
 -- for each students and test check if their marks have increased/ decreased from previous test 
 
 with cte as(
@@ -2744,6 +2755,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
