@@ -2,6 +2,19 @@
 
 
 
+-- for each students and test check if their marks have increased/ decreased from previous test 
+
+with cte as(
+select studentid, subject, marks, testid
+, lag(marks,1) over(partition by studentid order by testdate, subject) prev_marks
+from students)
+select * 
+, case when marks > prev_marks then 'inc'  
+	   when  marks < prev_marks then 'dec' 
+       else null end inc_dec
+from cte;
+
+
 -- sql query to get second highest and second lowest marks in each sub
 -- sub second_high	second_lowest
 
@@ -2731,6 +2744,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
