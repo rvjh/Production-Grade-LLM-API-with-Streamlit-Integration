@@ -2,6 +2,21 @@
 
 
 
+
+select * from students;
+
+
+-- list of students who scored above average marks of each subject
+
+with marks_got as(
+select subject, avg(marks) avg_marks
+from students
+group by subject)
+select students.studentid, students.studentname, students.marks, marks_got.avg_marks
+from students
+inner join marks_got on students.subject  = marks_got.subject and students.marks > marks_got.avg_marks
+
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
@@ -2699,6 +2714,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
