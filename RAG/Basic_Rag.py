@@ -4,6 +4,18 @@
 
 
 
+with cte as(
+select * 
+, row_number() over(partition by city order by name asc) player_grp
+from players_location)
+select player_grp
+, max(case when city = 'Mumbai' then name end) as Mumbai 
+, max(case when city = 'Delhi' then name end) as Delhi
+, max(case when city = 'Bangalore' then name end) as Bangalore
+from cte
+group by player_grp;
+
+
 -- logon logout cnt
 
 with cte as(
@@ -2910,6 +2922,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
