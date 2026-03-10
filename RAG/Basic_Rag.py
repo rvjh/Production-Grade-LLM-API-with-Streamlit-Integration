@@ -1,5 +1,24 @@
 
 
+
+
+
+
+-- logon logout cnt
+
+with cte as(
+select * 
+, lag(status,1, status) over(order by event_time) prev_status
+from event_status)
+, cte2 as(
+select * 
+, sum(case when status='on' and prev_status='off' then 1 else 0 end) over(order by event_time) grp_key
+from cte)
+select min(event_time) login, max(event_time) logout, count(1)-1 on_cnt
+from cte2
+group by grp_key;
+
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
@@ -2891,6 +2910,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
