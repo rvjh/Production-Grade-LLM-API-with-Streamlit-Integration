@@ -3,6 +3,13 @@
 
 
 
+
+
+
+def m(s):
+  return s[::-1]
+m("aknlkqn")
+
 -- largest order by value for each salesperson and display order details
 
 select * from int_orders;
@@ -2755,6 +2762,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
