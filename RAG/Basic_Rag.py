@@ -3,6 +3,21 @@
 
 
 
+-- third highest salary of each dept
+-- incase less than 3 emp then restun emp details with lowest sal
+
+select * from emp;
+
+with cte as(
+select * 
+, rank() over(partition by dep_name order by salary desc) rn
+, count(1) over(partition by dep_name) cnt
+from emp)
+select * 
+from cte
+where rn=3 or (cnt < 3 and rn=cnt); 
+
+
 --  median salary of each company
 
 select * from employee;
@@ -3071,6 +3086,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
