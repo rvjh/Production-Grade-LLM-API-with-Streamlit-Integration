@@ -1,7 +1,21 @@
 
 
 
+-- 3 or more consecutive rows
+-- with amount of people more than 100(inclusive) each day
 
+select * from stadium;
+
+with cte as(
+select *,
+row_number() over(order by visit_date) rn,
+id - row_number() over(order by visit_date) as grp
+from stadium	
+where no_of_people >= 100)
+select * from cte 
+where grp in(
+select grp from cte
+group by grp having count(1) >= 3);
 
 -- third highest salary of each dept
 -- incase less than 3 emp then restun emp details with lowest sal
@@ -3086,6 +3100,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
