@@ -3,6 +3,10 @@
 
 
 
+--  median salary of each company
+
+select * from employee;
+
 with cte as(
 select * 
 , row_number() over(partition by company order by salary asc) rn
@@ -14,6 +18,7 @@ from cte
 where rn between cnt/2 and cnt/2+1)
 select company, avg(salary) median_sala from cte2
 group by company;
+
 
 response = {
     "open_ai": {
@@ -3066,6 +3071,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
