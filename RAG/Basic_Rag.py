@@ -1,6 +1,13 @@
 
 
 
+
+
+def m(s):
+  return s[::-1]
+m("calknclqncl")
+
+
 -- 3 or more consecutive rows
 -- with amount of people more than 100(inclusive) each day
 
@@ -3100,6 +3107,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
