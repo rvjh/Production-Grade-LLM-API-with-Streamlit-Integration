@@ -3,7 +3,41 @@
 
 
 
+-- identify new cities
 
+select * from business_city;
+
+with cte as(
+select year(business_date) business_year, city_id from business_city)
+, cte2 as(
+select c1.business_year, c1.city_id
+from cte c1 
+left join cte c2 on c1.business_year > c2.business_year and c1.city_id = c2.city_id
+where c2.city_id is null and c2.business_year is null)
+select business_year, count(*) no_of_new_cities
+from cte2
+group by business_year;
+
+
+-- ---------- ---------------------------
+
+-- 4 consecutive empty seats in a cinema hall
+
+with cte as(
+select * 
+, left(seat,1) row_id, right(seat,1) seat_id
+from movie)
+, cte2 as(
+select *,
+max(occupancy) over(partition by row_id order by seat_id rows between current row and 3 following) is_4_empty  
+, count(occupancy) over(partition by row_id order by seat_id rows between current row and 3 following) cnt  
+from cte)
+, cte3 as(
+select * from cte2
+where is_4_empty = 0 and cnt=4) 
+select cte2.*
+from cte2
+inner join cte3 on cte2.row_id = cte3.row_id and cte2.seat_id between cte3.seat_id and cte3.seat_id +3
 
 -- identify new cities
 
@@ -3256,6 +3290,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
