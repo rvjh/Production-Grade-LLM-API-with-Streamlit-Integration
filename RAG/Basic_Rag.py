@@ -1,6 +1,26 @@
 
 
 
+
+
+
+
+-- identify new cities
+
+select * from business_city;
+
+with cte as(
+select year(business_date) business_year, city_id from business_city)
+, cte2 as(
+select c1.business_year, c1.city_id
+from cte c1 
+left join cte c2 on c1.business_year > c2.business_year and c1.city_id = c2.city_id
+where c2.city_id is null and c2.business_year is null)
+select business_year, count(*) no_of_new_cities
+from cte2
+group by business_year;
+
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
@@ -3236,6 +3256,7 @@ db = Chroma(documents[:], OllamaEmbeddings())
 query = "Who are the authors of attention is all you need?"
 retireved_results=db.similarity_search(query)
 print(retireved_results[0].page_content)
+
 
 
 
