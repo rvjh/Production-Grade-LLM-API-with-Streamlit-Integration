@@ -1,6 +1,11 @@
 
 
-
+select call_number, 
+sum(case when call_type = 'INC' then call_duration else null end) inconing_call_dur,
+sum(case when call_type = 'OUT' then call_duration else null end) outgoing_call_dur
+from call_details
+group by call_number
+having sum(case when call_type = 'OUT' then call_duration else null end) > sum(case when call_type = 'INC' then call_duration else null end);
 
 
 with cte as(
