@@ -1,6 +1,20 @@
 
 
 
+
+
+with cte as(
+select call_number, 
+sum(case when call_type = 'INC' then call_duration else null end) inconing_call_dur,
+sum(case when call_type = 'OUT' then call_duration else null end) outgoing_call_dur
+from call_details
+group by call_number)
+select * 
+from cte where 
+				inconing_call_dur is not null 
+                and outgoing_call_dur is not null
+                and outgoing_call_dur > inconing_call_dur;
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
