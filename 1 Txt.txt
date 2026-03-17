@@ -9,3 +9,13 @@ def m(s):
     d[i] = s.count(i)
   return d
 m("xanclqbnl")
+
+def m(a,b):
+  d={}
+  for i in a:
+    d[i] = True
+  for j in b:
+    if j in d:
+      return j
+
+m([1,2,3],[2,3])
