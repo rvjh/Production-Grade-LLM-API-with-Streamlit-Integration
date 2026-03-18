@@ -1,6 +1,11 @@
 
 
 
+
+def m(s):
+  return s[::-1]
+m("ajqbllqnl")
+
 with cte as(
 select * 
 , row_number() over(order by (select null)) rn
