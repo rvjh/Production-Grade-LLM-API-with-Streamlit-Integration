@@ -4,6 +4,24 @@
 
 
 
+-- callers whose first and last call was to the same person on the given date
+
+select * from phonelog;
+
+
+with first_last_call as(
+select callerid, date(datecalled) date_t , max(datecalled) fcall, min(datecalled) lcall
+from phonelog
+group by callerid, date(datecalled))
+, cte2 as(
+select c.*, p1.recipientid f_rec, p2.recipientid l_rec
+from first_last_call c
+inner join phonelog p1 on p1.callerid = c.callerid and p1.datecalled = c.fcall
+inner join phonelog p2 on p2.callerid = c.callerid and p2.datecalled = c.lcall)
+select *
+from cte2
+where f_rec = l_rec;
+
 -- students being quite in all exams 
 -- quite - atleast one exam and didnt score nither high/ low score , order by student_id
 
