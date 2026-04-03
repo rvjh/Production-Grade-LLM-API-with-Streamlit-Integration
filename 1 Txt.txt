@@ -3,6 +3,26 @@
 
 
 
+
+-- students being quite in all exams 
+-- quite - atleast one exam and didnt score nither high/ low score , order by student_id
+
+select * from students_v2;
+select * from exams_v2;
+
+
+with exam_h_l_marks as(
+select exam_id, max(score) h_marks, min(score) l_marks
+from exams_v2 
+group by exam_id)
+select student_id from(
+select exams_v2.student_id,
+max(case when score = h_marks or score = l_marks then 1 else 0 end) flag
+from exams_v2 inner join exam_h_l_marks 
+on exams_v2.exam_id = exam_h_l_marks.exam_id
+group by exams_v2.student_id) A 
+where flag = 0;
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
