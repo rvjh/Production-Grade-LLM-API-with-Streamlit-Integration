@@ -2,7 +2,9 @@
 
 
 
-
+def m(s):
+  return s[::-1]
+m("alcnalbcl")
 
 -- callers whose first and last call was to the same person on the given date
 
