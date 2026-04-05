@@ -3,6 +3,16 @@
 
 
 
+-- emp, manager and senior manager
+
+with emp_details as(
+select emp_id, emp_name, manager_id from emp_v2)
+select e1.emp_id, e1.emp_name, e2.emp_id mng_id, e2.emp_name mng_name, e3.emp_id sm_id, e3.emp_name sm_name
+from emp_details e1 
+left join emp_details e2 on e1.manager_id = e2.emp_id
+left join emp_details e3 on e2.manager_id = e3.emp_id;
+
+
 -- budget is $70000, first hire seniors then juniors with the possibel small amount
 
 select * from candidates;
