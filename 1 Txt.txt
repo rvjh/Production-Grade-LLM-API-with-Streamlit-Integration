@@ -1,6 +1,24 @@
 
 
 
+
+
+-- budget is $70000, first hire seniors then juniors with the possibel small amount
+
+select * from candidates;
+
+with total_sal as(
+select *,
+sum(salary) over(partition by experience order by salary asc) c_sum
+from candidates)
+, senior_sal as(
+select * from total_sal
+where experience = 'senior' and c_sum <= 70000)
+select * from total_sal
+where experience = 'junior' and c_sum <= 70000 -(select sum(salary) from senior_sal)
+union all
+select * from senior_sal;
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
