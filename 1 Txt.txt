@@ -3,6 +3,10 @@
 
 
 
+def m(s):
+  return s[::-1]
+m("clbclbcl")
+
 -- emp, manager and senior manager
 
 with emp_details as(
