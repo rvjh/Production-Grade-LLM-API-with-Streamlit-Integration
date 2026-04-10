@@ -4,6 +4,25 @@
 
 
 
+select * from tbl_orders_copy;
+select * from tbl_orders;
+
+-- order id flag
+-- 1 'D'
+-- 5 'I' 
+-- 6  'I'
+
+SELECT o.order_id AS order_id, 'I' AS flag
+FROM tbl_orders o
+LEFT JOIN tbl_orders_copy c 
+ON o.order_id = c.order_id
+WHERE c.order_id IS NULL
+UNION ALL
+SELECT c.order_id AS order_id, 'D' AS flag
+FROM tbl_orders_copy c
+LEFT JOIN tbl_orders o 
+ON o.order_id = c.order_id
+WHERE o.order_id IS NULL;
 
 
 response = {
