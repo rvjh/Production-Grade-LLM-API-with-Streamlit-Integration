@@ -2,7 +2,9 @@
 
 
 
-
+def m(z):
+  return z[::-1]
+m("clbclbcl")
 
 select * from tbl_orders_copy;
 select * from tbl_orders;
