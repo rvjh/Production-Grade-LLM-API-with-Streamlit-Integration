@@ -15,7 +15,8 @@ def m(x):
       l.append(a+b)
       a,b = b, a+b
   return l
- m(10) 
+m(10) 
+
 
 
 def per(n,r):
