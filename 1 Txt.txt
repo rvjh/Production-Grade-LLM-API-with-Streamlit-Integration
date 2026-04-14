@@ -2,6 +2,27 @@
 
 
 
+
+-- marketing campaign success
+
+select * from marketing_campaign;
+
+
+with rnk_data as(
+select * ,
+rank() over(partition by user_id order by created_at asc) rn
+from marketing_campaign)
+, first_app_purchase as(
+select * from rnk_data where rn=1)
+, except_first_app_purchase as(
+select * from rnk_data where rn>1)
+select 
+distinct a.user_id -- a.product_id, a.created_at, b.user_id, b.product_id, b.created_at
+from except_first_app_purchase a
+left join first_app_purchase b on a.user_id = b.user_id and a.product_id = b.product_id
+where b.product_id is null
+
+
 select * from purchase_history;
 
 
