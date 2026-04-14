@@ -3,6 +3,20 @@
 
 
 
+--
+select * from trade_tbl;
+
+with cte as(
+SELECT t1.trade_id first_trade, t2.trade_id second_trade, t1.price first_trade_price, t2.price second_trade_price
+FROM trade_tbl t1
+INNER JOIN trade_tbl t2 
+ON t1.trade_id != t2.trade_id and t1.trade_id < t2.trade_id
+AND TIMESTAMPDIFF(SECOND, t1.trade_timestamp, t2.trade_timestamp) <= 10)
+select * from(
+select *, abs(first_trade_price - second_trade_price)/first_trade_price *100 perct
+from cte) A
+where perct > 10
+
 -- marketing campaign success
 
 select * from marketing_campaign;
