@@ -1,6 +1,15 @@
 
 
 
+with cte as(
+select *,
+lead(start_loc,1) over(partition by id order by start_time asc) next_start_loc 
+from drivers)
+select id, count(1) total_rides,
+sum(case when end_loc =  next_start_loc then 1 else 0 end) profit_rides
+from cte
+group by id;
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
