@@ -1,6 +1,19 @@
 
 
 
+
+select * from purchase_history;
+
+
+with cte as(
+select userid, count(distinct purchasedate) no_of_dates, count(productid) cnt_product,
+count(distinct productid) cnt_distinct_product
+from purchase_history
+group by userid)
+select userid
+from cte
+where no_of_dates >1 and cnt_product = cnt_distinct_product;
+
 with cte as(
 select *,
 lead(start_loc,1) over(partition by id order by start_time asc) next_start_loc 
