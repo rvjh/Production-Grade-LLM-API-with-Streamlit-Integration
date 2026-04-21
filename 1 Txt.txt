@@ -2,7 +2,12 @@
 
 
 
-
+def m(X):
+  if X==0 or X==1:
+    return 1
+  else:
+    return X*m(X-1)
+m(10)
 
 def m(l,x):
   d={}
