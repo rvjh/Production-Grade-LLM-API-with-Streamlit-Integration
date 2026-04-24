@@ -4,6 +4,28 @@
 
 
 
+
+response = {
+    "open_ai": {
+        "gpt3.5": {"total_token": 30, "cost": 4},
+        "gpt4o": {"total_token": 10, "cost": 2}
+    },
+    "amthropic": {
+        "gamma2.9": {"total_token": 15, "cost": 2}
+    }
+}
+
+def m(x):
+  d={}
+  for providers, models in x.items():
+    for model, details in models.items():
+      total = details['total_token']*details['cost']
+      key = f"{providers}/{model}"
+      value = f"{total}$"
+      d[key] = value
+  return d
+m(response)
+
 import numpy as np
 
 def mat_mul(a,b):
