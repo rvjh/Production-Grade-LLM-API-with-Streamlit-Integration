@@ -6,6 +6,15 @@
 
 
 
+-- days between first and last booking of each users
+
+select user_id,
+min(booking_date) first_book, max(booking_date) last_book,
+datediff(max(booking_date), min(booking_date)) day_diff
+from booking_table
+group by user_id;
+
+
 -- identify users whose first booking was hotel bookings
 
 with cte as(
