@@ -5,6 +5,17 @@
 
 
 
+-- no_of flights and hotel bookings in each of user segment for the year 2022
+
+-- segment_id, no_of_flight, no_of_hotels 
+
+select u.segment,
+sum(case when b.line_of_business = 'Flight' then 1 else 0 end) no_of_flight,
+sum(case when b.line_of_business = 'HOtel' then 1 else 0 end) no_of_hotel
+from user_table u 
+inner join booking_table b on b.user_id = u.user_id
+where year(b.booking_date)=2022
+group by u.segment
 
 -- days between first and last booking of each users
 
