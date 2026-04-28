@@ -5,6 +5,11 @@
 
 
 
+
+def m(s):
+  return s[::-1]
+m("achqelcnlqnih")
+
 -- no_of flights and hotel bookings in each of user segment for the year 2022
 
 -- segment_id, no_of_flight, no_of_hotels 
