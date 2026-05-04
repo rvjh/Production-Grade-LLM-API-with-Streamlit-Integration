@@ -1,3 +1,14 @@
+
+def m(l,x):
+  d = {}
+  for i in range(len(l)):
+    diff = x - l[i]
+    if diff in d:
+      return [d[diff],i]
+    else:
+      d[l[i]] = i
+m([1,2,4,3],5)
+
 def m(s):
   return s[::-1]
 m("cjwbwnjnl")
