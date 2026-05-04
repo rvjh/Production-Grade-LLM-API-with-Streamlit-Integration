@@ -3,6 +3,23 @@
 
 
 
+select * from emp;
+
+-- 
+with cte as(
+select dep_id, avg(salary) dep_avg_sal, count(*) no_of_emp, sum(salary) total_dep_sal 
+from emp
+group by dep_id)
+select * from(
+select e1.dep_id, e1.dep_avg_sal, sum(e2.no_of_emp) no_of_emp, sum(e2.total_dep_sal) total_sal
+, sum(e2.total_dep_sal)/sum(e2.no_of_emp) company_avg_sal
+from cte e1 
+inner join cte e2 on e1.dep_id != e2.dep_id 
+group by e1.dep_id, e1.dep_avg_sal
+order by e1.dep_id) A
+where dep_avg_sal< company_avg_sal;
+
+
 
 select * from hall_events;
 
