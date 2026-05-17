@@ -2,6 +2,15 @@
 
 
 
+
+a = [1,2,3,4,6,8,9]
+b = []
+## missing number
+for i in range(min(a),max(a)):
+  if i not in a:
+    b.append(i)
+print(b)
+
 def m(x):
   if x==0 or x==1:
     return 1
