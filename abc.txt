@@ -5,6 +5,18 @@
 
 
 
+l = [1,4,5,9,6]
+def m(x):
+  m = []
+  b = max(x)
+  for i in x:
+    if i<b:
+      m.append(i)
+      
+  return max(m)
+
+m(l)
+
 import numpy as np
 
 def mat_mul(a,b):
