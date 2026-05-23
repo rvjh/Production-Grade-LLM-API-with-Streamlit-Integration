@@ -3,7 +3,9 @@
 
 
 
-
+def m(s):
+  return s[::-1]
+m("dsjndcn")
 
 l = [1,4,5,9,6]
 def m(x):
