@@ -4,7 +4,8 @@
 
 
 
-
+a = lambda x,y : x*y
+a(20,3)
 
 def m(x):
   l=[0,1]
