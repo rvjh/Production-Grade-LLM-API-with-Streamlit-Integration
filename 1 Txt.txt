@@ -8,6 +8,18 @@
 
 
 
+select * from events;
+
+-- find swimmers , mo of golds, only golds 
+
+SELECT gold AS player_name, COUNT(1) AS no_of_medals
+FROM events
+WHERE gold NOT IN (
+    SELECT silver FROM events
+    UNION ALL
+    SELECT bronze FROM events
+)
+GROUP BY gold;
 
 response = {
     "open_ai": {
