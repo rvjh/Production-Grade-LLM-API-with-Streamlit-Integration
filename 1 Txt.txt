@@ -7,6 +7,22 @@
 
 
 
+select * from tickets;
+
+-- find business days b/w create and resolved date by excluding weekends and public holiday
+
+with cte as(
+select ticket_id, create_date, resolved_date, count(holiday_date) no_of_holiday 
+, (week(resolved_date) - week(create_date)) week_diff,
+datediff(resolved_date, create_date) day_diff,
+datediff(resolved_date, create_date) - 2*(week(resolved_date) - week(create_date)) business_days
+from tickets
+left join holidays
+on holiday_date between create_date and resolved_date
+group by ticket_id, create_date, resolved_date)
+select *,
+business_days - no_of_holiday actual_business_days
+from cte;
 
 with cte as(
 select gold player_name, 'gold' medal_type from events
