@@ -8,6 +8,18 @@
 
 
 
+with cte as(
+select gold player_name, 'gold' medal_type from events
+union all
+SELECT silver player_name, 'silver' medal_type FROM events
+UNION ALL
+SELECT bronze player_name, 'bronze' medal_type FROM events)
+select player_name, count(*) no_of_gold
+from cte
+group by player_name
+having count(distinct medal_type) = 1 and max(medal_type) = 'gold';
+
+
 select * from events;
 
 -- find swimmers , mo of golds, only golds 
