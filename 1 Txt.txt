@@ -2,6 +2,10 @@
 
 
 
+
+a = lambda x,y : x*y
+a(10,3)
+
 def per(n,r):
   if n>r:
     return m(n)/m(n-r)
