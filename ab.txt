@@ -8,6 +8,29 @@
 
 
 
+
+
+-- emp whose salary is same in the same dept
+
+select * from emp_salary;
+
+with cte as(
+select dept_id, salary
+from emp_salary
+group by dept_id, salary
+having count(1)>1)
+select emp_salary.emp_id, emp_salary.name, emp_salary.salary, cte.dept_id
+from emp_salary inner join cte on emp_salary.dept_id = cte.dept_id and emp_salary.salary = cte.salary;
+
+
+with cte as
+(select *,
+dense_rank() over (partition by dept_id order by salary) as rnk
+from emp_salary)
+select a.emp_id,a.name,a.salary,a.dept_id 
+from cte a, cte b 
+where a.emp_id<>b.emp_id and a.dept_id=b.dept_id and a.rnk=b.rnk;
+
 select * from airbnb_searches;
 
 
