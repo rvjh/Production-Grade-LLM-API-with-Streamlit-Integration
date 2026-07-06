@@ -6,6 +6,59 @@
 
 
 
+
+-- total-no of people present inside hospital
+
+select * from hospital;
+
+
+with cte as(
+select emp_id
+, max(case when action='in' then time end) intime
+, max(case when action='out' then time end) outtime
+from hospital
+group by emp_id)
+select *
+from cte 
+where intime > outtime or outtime is null;
+
+
+
+select emp_id
+, max(case when action='in' then time end) intime
+, max(case when action='out' then time end) outtime
+from hospital
+group by emp_id
+having max(case when action='in' then time end) > max(case when action='out' then time end) or max(case when action='out' then time end) is null;
+
+
+with intime as(
+select emp_id, max(time) latest_in_time 
+from hospital
+where action='in'
+group by emp_id)
+, outtime as(
+select emp_id, max(time) latest_out_time 
+from hospital
+where action='out'
+group by emp_id)
+select intime.emp_id, intime.latest_in_time, outtime.latest_out_time
+from intime 
+left join outtime on intime.emp_id = outtime.emp_id
+where intime.latest_in_time > outtime.latest_out_time or outtime.latest_out_time is null;
+
+with latest_time as(
+select emp_id, max(time) max_latest_time 
+from hospital
+group by emp_id)
+, latest_in_time as(
+select emp_id, max(time) max_in_time 
+from hospital
+where action='in'
+group by emp_id)
+select * 
+from latest_time lt inner join latest_in_time lit on lt.emp_id = lit.emp_id and max_latest_time=max_in_time;
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
