@@ -8,6 +8,20 @@
 
 
 
+
+-- high and low salaary emp for each dept
+
+with cte as(
+select emp_id, emp_name, salary,dep_id, 
+row_number() over(partition by dep_id order by salary desc) rn,
+row_number() over(partition by dep_id order by salary) rn1
+from emp)
+select dep_id,
+max(case when rn=1 then emp_name end) dep_high_sal_emp,
+max(case when rn1=1 then emp_name end) dep_low_sal_emp
+from cte
+group by dep_id;
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
