@@ -8,7 +8,9 @@
 
 
 
-
+def m(x):
+  return x[::-1]
+m("qlncwlnclwn")
 
 -- emp whose salary is same in the same dept
 
