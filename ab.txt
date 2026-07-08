@@ -7,6 +7,23 @@
 
 
 
+select * from input;
+
+-- 
+
+with cte as(
+select *,
+left(formula,1) d1, right(formula,1) d2, SUBSTRING(formula, 2, 1) AS op
+from input)
+, cte2 as(
+select cte.id, cte.value, cte.formula, cte.op, input.value d1_value, ip2.value d2_value
+from cte 
+inner join input on cte.d1 = input.id
+inner join input ip2 on cte.d2 = ip2.id)
+select id, value, formula,
+case when op='+' then d1_value + d2_value else d1_value - d2_value end res
+from cte2
+order by id
 
 -- start time end time
 
