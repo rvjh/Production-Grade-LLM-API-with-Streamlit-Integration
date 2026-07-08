@@ -7,6 +7,22 @@
 
 
 
+select * from ameriprise_llc;
+
+-- c1 and c2 is y  and min 2 team member have y , then output y else n
+
+with qualified_team as(
+select teamID, count(1) no_of_eligible
+from ameriprise_llc
+where Criteria1 = 'Y' and Criteria2 = 'Y'
+group by teamID
+having count(1)>=2)
+select ameriprise_llc.teamID, ameriprise_llc.memberID, ameriprise_llc.Criteria1, ameriprise_llc.Criteria2, 
+case when ameriprise_llc.Criteria1 = 'Y' and ameriprise_llc.Criteria2 = 'Y' and qualified_team.teamID is not null then 'Y' else 'N' end Output
+from ameriprise_llc
+left join qualified_team on ameriprise_llc.teamID = qualified_team.teamID;
+
+
 select * from input;
 
 -- 
