@@ -8,6 +8,24 @@
 
 
 
+-- start time end time
+
+select * from call_start_logs;
+select * from call_end_logs;
+
+-- join 
+
+with start_ph as(
+select *, row_number() over(partition by phone_number order by start_time) rn 
+from call_start_logs)
+, end_ph as(
+select *, row_number() over(partition by phone_number order by end_time) rn1 
+from call_end_logs)
+select start_ph.phone_number, start_ph.start_time, end_ph.end_time, timestampdiff(MINUTE, start_ph.start_time, end_ph.end_time) time_diff_min
+from start_ph inner join end_ph on start_ph.phone_number = end_ph.phone_number and start_ph.rn = end_ph.rn1;
+
+
+
 
 response = {
     "open_ai": {
