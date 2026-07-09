@@ -8,7 +8,7 @@
 
 
 def m(x):
-  rteurn x[::-1]
+  return x[::-1]
 m("wclwln")
 
 select * from ameriprise_llc;
