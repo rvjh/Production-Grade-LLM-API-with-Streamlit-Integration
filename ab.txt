@@ -7,6 +7,10 @@
 
 
 
+def m(x):
+  rteurn x[::-1]
+m("wclwln")
+
 select * from ameriprise_llc;
 
 -- c1 and c2 is y  and min 2 team member have y , then output y else n
