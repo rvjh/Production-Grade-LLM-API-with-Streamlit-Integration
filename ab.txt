@@ -11,6 +11,23 @@
 
 
 
+
+select * from company_revenue;
+
+
+with cte as(
+select *, 
+lag(revenue,1, 0) over(partition by company order by year)  prev_rev,
+revenue - lag(revenue,1, 0) over(partition by company order by year) rev_diff,
+count(1) over(partition by company) cnt
+from company_revenue)
+select company, cnt, count(1) sales_inc_year
+from cte
+where rev_diff>0
+group by company, cnt
+having cnt = count(1);
+
+
 select * from family;
 
 with cte_adult as(
