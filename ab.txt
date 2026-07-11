@@ -11,6 +11,20 @@
 
 
 
+select * from family;
+
+with cte_adult as(
+select *, row_number() over(order by person) rn
+from family
+where type = 'Adult')
+, cte_child as(
+select *, row_number() over(order by person) rn
+from family
+where type='Child')
+select cte_adult.person, cte_child.person
+from cte_adult
+left join cte_child on cte_child.rn = cte_adult.rn;
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
