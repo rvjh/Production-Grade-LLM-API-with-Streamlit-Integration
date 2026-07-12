@@ -10,7 +10,9 @@
 
 
 
-
+def m(x):
+  reurn x[::-1]
+m("ndbckwdbc")
 
 select * from company_revenue;
 
