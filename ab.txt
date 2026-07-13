@@ -7,6 +7,29 @@
 
 
 
+
+select * from icc_world_cup2;
+
+-- teams match_played won lost pts
+
+with cte as((select team_1 as teams,count(*) as matches_played,
+sum(case when team_1=winner then 1 else 0 end) as win,
+sum(case when winner='DRAW' then 1 else 0 end) as draw
+from icc_world_cup2
+group by team_1)
+ 
+ union
+(select team_2 as teams,count(*) as matches_played,
+sum(case when team_2=winner then 1 else 0 end) as win,
+sum(case when winner='DRAW' then 1 else 0 end) as draw
+from icc_world_cup2
+group by team_2) )
+
+select teams,sum(matches_played) as matches_played,sum(win) as wins,sum(matches_played-win-draw) as loss,sum(draw) as draw,sum((win*2+draw*1)) as pts
+from cte
+group by teams
+order by pts desc;
+
 select * from people;
 select * from relations;
 
