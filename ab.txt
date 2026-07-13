@@ -7,7 +7,25 @@
 
 
 
+select * from people;
+select * from relations;
 
+
+select * from people;
+
+
+-- child father mother
+
+with cte_child as(
+select relations.c_id, relations.p_id, people.name child
+from relations 
+inner join people on relations.c_id = people.id)
+select cte_child.child,
+max(case when cte_child.p_id = people.id and gender = 'M' then name end) father,
+max(case when cte_child.p_id = people.id and gender = 'F' then name end) mother
+from cte_child
+inner join people on cte_child.p_id = people.id
+group by cte_child.child;
 
 response = {
     "open_ai": {
