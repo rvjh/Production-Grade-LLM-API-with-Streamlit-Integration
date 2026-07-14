@@ -8,7 +8,31 @@
 
 
 
+select * from source;
+select * from target;
 
+-- Simulating FULL OUTER JOIN in MySQL
+
+
+SELECT COALESCE(s.id, t.id) AS id,
+CASE WHEN s.name IS NULL THEN 'Missing in source'
+	 WHEN t.name IS NULL THEN 'Missing in target'
+	 WHEN s.name != t.name THEN 'Name mismatch'
+	 ELSE 'Match'
+     END AS status
+FROM source s
+LEFT JOIN target t ON s.id = t.id
+WHERE s.name != t.name OR s.name IS NULL OR t.name IS NULL
+UNION
+SELECT COALESCE(s.id, t.id) AS id,
+CASE WHEN s.name IS NULL THEN 'Missing in source'
+	 WHEN t.name IS NULL THEN 'Missing in target'
+	 WHEN s.name != t.name THEN 'Name mismatch'
+	 ELSE 'Match'
+     END AS status
+FROM source s
+RIGHT JOIN target t ON s.id = t.id
+WHERE s.name != t.name OR s.name IS NULL OR t.name IS NULL;
 
 -- new customer in each month 
 
