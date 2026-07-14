@@ -6,7 +6,9 @@
 
 
 
-
+def m(x):
+  return x[::-1]
+m("jbcjebclwncl")
 
 select * from icc_world_cup2;
 
