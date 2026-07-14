@@ -9,6 +9,19 @@
 
 
 
+
+-- new customer in each month 
+
+select * from sales;
+
+with cte as(
+select *, month(order_date) mon, row_number() over(partition by customer order by order_date) rn
+from sales)
+select year(order_date) year, mon, count(1) no_of_new_cust
+from cte
+where rn=1
+group by year(order_date), mon;
+
 select * from flights;
 
 
