@@ -7,6 +7,19 @@
 
 
 
+select * from movies;
+select * from reviews;
+
+
+with cte as(
+select m.genre, m.title, avg(r.rating) rating,
+row_number() over(partition by m.genre order by avg(r.rating) desc) rn
+from movies m
+inner join reviews r on m.id = r.movie_id 
+group by  m.genre, m.title)
+select genre, title, repeat('*' , round(rating,0)) stars
+from cte
+where rn=1;
 
 select * from source;
 select * from target;
