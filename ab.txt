@@ -9,6 +9,12 @@
 
 
 
+select * from flights;
+
+
+select f1.origin origin, f2.destination final_dest
+from flights f1
+inner join flights f2 on f1.destination = f2.origin
 
 response = {
     "open_ai": {
