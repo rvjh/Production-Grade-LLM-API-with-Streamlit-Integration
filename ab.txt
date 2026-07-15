@@ -7,6 +7,18 @@
 
 
 
+
+
+with cte as(
+select 1, origin, destination, oneway_round, ticket_count from tickets_1
+union all
+select 2, destination, origin, oneway_round, ticket_count from tickets_1 where oneway_round='R')
+select origin, destination, sum(ticket_count) tc
+from cte 
+group by origin, destination
+order by tc desc;
+
+
 select * from families;
 select * from countries;
 
