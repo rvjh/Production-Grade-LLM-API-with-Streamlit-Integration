@@ -7,7 +7,23 @@
 
 
 
+select * from families;
+select * from countries;
 
+
+select * from families;
+
+
+select count(*) from countries where min_size < (select max(family_size) from families);
+
+
+with cte as(
+select f.name fname,count(*) max_dis
+from families f
+inner join countries c on f.family_size between c.min_size and c.max_size
+group by f.name)
+select max(max_dis) max_country_offer
+from cte;
 
 response = {
     "open_ai": {
