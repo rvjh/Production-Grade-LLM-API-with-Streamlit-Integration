@@ -7,6 +7,12 @@
 
 
 
+
+
+def m(x):
+  return x[::-1]
+m("dwbwbwll")
+
 select * from movies;
 select * from reviews;
 
