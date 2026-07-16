@@ -6,6 +6,9 @@
 
 
 
+def m(x):
+  return x[::-1]
+m("qnllclwnneln")
 
 def m(x):
   if x==0 or x==1:
