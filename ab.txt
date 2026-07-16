@@ -5,6 +5,19 @@
 
 
 
+
+with cte as(
+select *,
+lower(email_id) l_email_id
+from employees
+where email_id = lower(email_id))
+, cte2 as(
+select *,
+ascii(email_id) ascii_email,
+rank() over(partition by email_id order by ascii(email_id) desc) rn
+from cte)
+select * from cte2 where rn=1;
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
