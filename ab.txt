@@ -6,6 +6,23 @@
 
 
 
+
+-- -----------------
+
+select * from city_population;
+
+
+with cte as(
+select * 
+, row_number() over(partition by state order by population desc) high_rn
+, row_number() over(partition by state order by population asc) low_rn
+from city_population )
+select state
+, max(case when low_rn =1 then city end) as low_pop
+, max(case when high_rn =1 then city end) as high_pop
+from cte
+group by state;
+
 with cte as(
 select *,
 lower(email_id) l_email_id
