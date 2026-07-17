@@ -8,6 +8,10 @@
 
 
 
+
+from functools import reduce
+reduce(a,[1,2,3,4])
+
 def m(x):
   l=[0,1]
   if x==0:
