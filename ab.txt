@@ -7,6 +7,12 @@
 
 
 
+
+select * 
+, case when id%2=0 then lag(id,1) over(order by id) else lead(id,1, id) over(order by id) end as new_id
+from seats;
+
+
 select * from seats;
 
 
