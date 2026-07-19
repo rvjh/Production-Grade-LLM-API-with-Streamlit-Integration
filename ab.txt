@@ -8,6 +8,20 @@
 
 
 
+
+
+select * from swiggy_orders;
+
+
+SELECT del_partner, 
+sum(case when TIMESTAMPDIFF(MINUTE, order_time, deliver_time) > predicted_time then 1 else 0 end) delayed_order
+FROM swiggy_orders
+group by del_partner; 
+
+
+
+-- -- 
+
 select * 
 , case when id%2=0 then lag(id,1) over(order by id) else lead(id,1, id) over(order by id) end as new_id
 from seats;
