@@ -8,6 +8,14 @@
 
 
 
+select * from orders_amz_M;
+
+-- first purchase and exactly one more purchase whin 7 days and never after that
+
+SELECT USER_ID, COUNT(order_id) AS order_count, MIN(order_date) AS min_date, MAX(order_date) AS max_date
+FROM orders_amz_M
+GROUP BY USER_ID
+HAVING COUNT(order_id) = 2 AND DATEDIFF(MAX(order_date), MIN(order_date)) <= 7;
 
 
 -- date on which the 3rd highest sale of product 4 take place in terms of value
