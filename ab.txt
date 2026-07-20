@@ -8,6 +8,10 @@
 
 
 
+def m(x):
+  return x[::-1]
+m("cljwblecblwb")
+
 select * from orders_amz_M;
 
 -- first purchase and exactly one more purchase whin 7 days and never after that
