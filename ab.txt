@@ -7,6 +7,27 @@
 
 
 
+
+
+
+
+
+select * from booking_table;
+select * from user_table;
+
+
+-- q1 segment, total_user_cnt, who book flight apr_2022
+
+select u.segment, count(distinct u.user_id) total_user_cnt,
+count(distinct case when month(b.booking_date) = 4 then u.user_id else null end) user_booked_apr_2024
+from user_table u 
+left join booking_table b on b.user_id = u.user_id
+group by u.segment;
+
+
+
+
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
