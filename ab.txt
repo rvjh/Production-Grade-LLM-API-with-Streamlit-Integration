@@ -40,6 +40,18 @@ select user_id, datediff(max(booking_date),min(booking_date)) date_diff
 from booking_table
 group by user_id;
 
+-- q5 count flight and hotel bookings in each of the user segment for the year 2022
+
+select u.segment,
+count(case when b.line_of_business = 'Hotel' then 1 else null end) hotel_cnt,
+count(case when b.line_of_business = 'Flight' then 1 else null end) flight_cnt
+from booking_table b
+inner join user_table u on b.user_id = u.user_id
+where year(booking_date) = 2022
+group by u.segment;
+
+
+
 
 
 
