@@ -50,7 +50,16 @@ inner join user_table u on b.user_id = u.user_id
 where year(booking_date) = 2022
 group by u.segment;
 
+-- q2 segment_id, user_id, firstbooking_date_in_apr, total_bookings in apr
 
+with cte as(
+select b.*,u.segment,
+row_number() over(partition by u.segment order by b.booking_date, booking_id) rn,
+count(*) over(partition by u.segment, u.user_id) count_of_bookings
+from booking_table b
+inner join user_table u on b.user_id = u.user_id
+where month(b.booking_date) = 4)
+select * from cte where rn=1;
 
 
 
