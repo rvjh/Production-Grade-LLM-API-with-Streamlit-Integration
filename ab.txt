@@ -6,7 +6,8 @@
 
 
 
-
+a = lambda x,y : x*y
+a(10,4)
 
 
 def m(x):
