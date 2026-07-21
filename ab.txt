@@ -34,6 +34,13 @@ select *
 from cte
 where rn=1 and line_of_business = 'Hotel';
 
+-- q3 days b/w first and last booking of users 
+
+select user_id, datediff(max(booking_date),min(booking_date)) date_diff
+from booking_table
+group by user_id;
+
+
 
 
 response = {
