@@ -6,7 +6,9 @@
 
 
 
-
+def m(s):
+  return s[::-1]
+m("cljwblecblwb")
 
 response = {
     "open_ai": {
