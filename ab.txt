@@ -10,7 +10,9 @@
 
 
 
-
+def m(x):
+  return x[::-1]
+m("lwjncljweblc")
 
 select * from booking_table;
 select * from user_table;
