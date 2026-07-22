@@ -4,7 +4,16 @@
 
 
 
+def m(l,x):
+  d = {}
+  for i in range(len(l)):
+    diff = x - l[i]
+    if diff in d:
+      return [d[diff],i]
+    d[l[i]] = i
+  return None
 
+m([1,2,3,4],5)
 
 def m(a,b):
   d = {}
