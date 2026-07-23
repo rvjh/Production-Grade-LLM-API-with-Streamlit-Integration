@@ -12,6 +12,24 @@
 
 
 
+
+-- product id change
+
+select * from Products_del;
+
+with cte1 as(
+select *,
+row_number() over(partition by category) rn1
+from Products_del
+order by category asc)
+, cte2 as(
+select *,
+row_number() over(partition by category order by rn1 desc) rn2
+from cte1)
+select cte2.productid, cte1.product, cte1.category
+from cte1
+inner join cte2 on cte1.rn1 = cte2.rn2 and cte1.category = cte2.category;
+
 -- longest consecutive days streak for each user -- continious days with no gap
 
 select * from event_logs;
