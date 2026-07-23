@@ -5,6 +5,18 @@
 
 
 
+
+
+
+
+def m(x):
+  d={}
+  for i in x:
+    d[i] = x.count(i)
+  return d
+
+m("hkvljglfk")
+
 def m(x):
   return x[::-1]
 m("cljwblecblwb")
