@@ -9,7 +9,9 @@
 
 
 
-
+def m(x):
+  return x[::-1]
+m("kcnlwelck")
 
 response = {
     "open_ai": {
