@@ -9,6 +9,16 @@
 
 
 
+with cte as(
+select *,
+dense_rank() over(partition by customer_id order by order_date) rn
+from customer_orders
+order by order_date)
+select order_date, 
+sum(case when rn=1 then 1 else 0 end) new_customer_cnt,
+sum(case when rn!=1 then 1 else 0 end) repeated_cust_cnt
+from cte
+group by order_date;
 
 select * from icc_world_cup;
 
