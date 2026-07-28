@@ -6,7 +6,21 @@
 
 
 
+select * from entries;
 
+-- name, total_visits, most visited floor, resources used (CPU, DESKTOP) 
+
+select * from entries;
+
+WITH cte1 AS (
+SELECT name,floor, COUNT(*) AS no_of_times_visited, GROUP_CONCAT(resources) AS rs
+FROM entries
+GROUP BY name, floor)
+,cte2 AS (
+SELECT *,
+RANK() OVER (PARTITION BY name ORDER BY no_of_times_visited DESC) AS rn
+FROM cte1)
+SELECT * FROM cte2 WHERE rn = 1;
 
 response = {
     "open_ai": {
