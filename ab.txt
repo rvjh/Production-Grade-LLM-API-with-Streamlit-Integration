@@ -6,6 +6,25 @@
 
 
 
+
+select * from orders3;
+
+-- 20% products which are giving 80% sales
+
+select sum(sales)* 0.8 from orders3;  -- 1501583
+
+
+with cte as(
+select product_id, sum(sales) prod_sales
+from orders3
+group by product_id
+order by sum(sales) desc)
+, cte2 as(
+select *, sum(prod_sales) over(order by prod_sales desc) c_sum
+from cte)
+select product_id from cte2
+where c_sum < 1501583;
+
 select * from entries;
 
 -- name, total_visits, most visited floor, resources used (CPU, DESKTOP) 
