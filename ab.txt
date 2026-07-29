@@ -7,6 +7,10 @@
 
 
 
+def m(x):
+  return x[::-1]
+m("wblwbvbw")
+
 select * from orders3;
 
 -- 20% products which are giving 80% sales
