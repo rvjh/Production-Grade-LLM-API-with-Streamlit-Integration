@@ -6,7 +6,27 @@
 
 
 
+-- personid, name, friends, sum of marks of person who have friends with total friend_Score score > 100 
 
+select * from person;
+select * from friend;
+
+
+with cte as(
+select f.personid, sum(p.score) friend_score
+from person p
+inner join friend f on p.personid = f.friendid
+group by f.personid
+having sum(p.score)> 100)
+, cte1 as(
+select personid, count(1) no_of_friends 
+from friend
+group by personid)
+, cte2 as(
+select cte.*, cte1.no_of_friends
+from cte inner join cte1 on cte.personid = cte1.personid)
+select person.personid, person.name, cte2.no_of_friends, cte2.friend_score
+from person inner join cte2 on person.personid = cte2.personid;
 
 response = {
     "open_ai": {
