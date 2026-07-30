@@ -6,6 +6,11 @@
 
 
 
+
+def m(x):
+  return x[::-1]
+m("wblwbvbw")
+
 -- personid, name, friends, sum of marks of person who have friends with total friend_Score score > 100 
 
 select * from person;
