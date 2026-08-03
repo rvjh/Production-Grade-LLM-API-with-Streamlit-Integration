@@ -7,6 +7,24 @@
 
 
 
+-- cancellation rate of unbanned users (both cliemt and user) b/w 2023-10-1 2023-10-3
+
+select * from trips_1;
+select * from users_3;
+
+-- cancellation rate = div the no of cancelled (by client or driver) requests with unbanned users by total no of unbanned users on that day
+
+with cte as(
+select request_at,
+sum(case when status in ('cancelled_by_driver','cancelled_by_client') then 1 else 0 end) total_Can, count(1) total_rides
+from trips_1 t
+inner join users_3 c on t.client_id = c.users_id
+inner join users_3 d on t.driver_id = d.users_id
+where c.banned = 'no' and d.banned = 'no'
+group by request_at)
+select request_at, round(total_Can/total_rides,2) cancellation_rate
+from cte;
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
