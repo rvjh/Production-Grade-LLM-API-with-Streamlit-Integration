@@ -7,6 +7,26 @@
 
 
 
+select * from players;
+select * from matches;
+
+-- find winner in each grp. who scored max in the grp. in case of tie owest player id wins.
+
+with player_sc as(
+select first_player player_id, first_score as score from matches
+union all
+select second_player player_id, second_score as score from matches)
+, player_score as(
+select player_id, sum(score) total_Score 
+from player_sc
+group by player_id)
+, cte as(
+select players.group_id, player_score.*,
+rank() over(partition by players.group_id order by player_score.total_Score desc, players.player_id asc) rn
+from players 
+inner join player_score on players.player_id = player_score.player_id)
+select * from cte where rn=1;
+
 -- cancellation rate of unbanned users (both cliemt and user) b/w 2023-10-1 2023-10-3
 
 select * from trips_1;
