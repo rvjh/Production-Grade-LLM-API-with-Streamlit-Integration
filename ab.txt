@@ -6,6 +6,17 @@
 
 
 
+def m(l,x):
+  d={}
+  for i in range(len(l)):
+    diff = x - l[i]
+    if diff in d:
+      return [d[diff],i]
+    else:
+      d[l[i]] = i
+      
+m([2,7,11,15],9)
+
 def m(x):
   d={}
   for i in x:
