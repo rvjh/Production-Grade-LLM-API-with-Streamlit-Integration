@@ -6,6 +6,12 @@
 
 
 
+
+
+def m(x):
+  return x[::-1]
+m("cjwbcwll")
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
