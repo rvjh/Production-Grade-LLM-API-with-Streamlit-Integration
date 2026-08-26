@@ -4,6 +4,30 @@
 
 
 
+
+## Synchronous
+
+import time
+
+def get_weather():
+  print("Fetching weather data...")
+  time.sleep(4)
+  print("Weather data fetched!")
+
+def get_stock():
+  print("Fetching stock data...")
+  time.sleep(3)
+  print("Stock data fetched!")
+
+def main():
+  start_time = time.time()
+  get_weather()
+  get_stock()
+  end_time = time.time()
+  print(f"Time taken: {end_time - start_time} seconds")
+
+main()
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
