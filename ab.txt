@@ -5,6 +5,30 @@
 
 
 
+
+## ASynchronous
+
+import time
+import asyncio
+
+async def get_weather():
+  print("Fetching weather data...")
+  await asyncio.sleep(4)
+  print("Weather data fetched!")
+
+async def get_stock():
+  print("Fetching stock data...")
+  await asyncio.sleep(3)
+  print("Stock data fetched!")
+
+async def main():
+  start_time = time.time()
+  await asyncio.gather(get_weather(), get_stock())
+  end_time = time.time()
+  print(f"Time taken: {end_time - start_time} seconds")
+
+await main()
+
 ## Synchronous
 
 import time
