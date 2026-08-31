@@ -6,6 +6,11 @@
 
 
 
+
+def m(x):
+  return x[::-1]
+m('wkjbcjwbclw')
+
 ## ASynchronous
 
 import time
