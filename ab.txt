@@ -4,7 +4,9 @@
 
 
 
-
+def m(x):
+  return x[::-1]
+m('cewlclw')
 
 response = {
     "open_ai": {
