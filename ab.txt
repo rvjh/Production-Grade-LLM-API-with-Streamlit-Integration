@@ -5,6 +5,8 @@
 
 
 
+from functools import reduce
+reduce(a,[1,2,3,4])
 
 a =  [1,2]
 b = ['a','b']
