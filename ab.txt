@@ -3,6 +3,14 @@
 
 
 
+
+def m(x):
+  d={}
+  for i in x:
+    d[i] = x.count(i)
+  return d
+m("djvbkjncd")
+
 def m(a,b):
   d={}
   for i in a:
