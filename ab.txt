@@ -3,6 +3,9 @@
 
 
 
+a = lambda x,y : x*y
+a(20,3)
+
 a = [1,2]
 b =['a','b']
 c = dict(zip(a,b))
