@@ -3,6 +3,29 @@
 
 
 
+
+response = {
+    "open_ai": {
+        "gpt3.5": {"total_token": 30, "cost": 4},
+        "gpt4o": {"total_token": 10, "cost": 2}
+    },
+    "anthropic": {
+        "gamma2.9": {"total_token": 15, "cost": 2}
+    }
+}
+
+def m(x):
+  d={}
+  for providers, details in x.items():
+    for model, value in details.items():
+      total = value['total_token'] * value['cost']
+      key = f"{providers}/{model}"
+      value = f"{total}$"
+      d[key] = value
+  return d
+
+m(response)
+
 import numpy as np
 
 def m(a,b):
