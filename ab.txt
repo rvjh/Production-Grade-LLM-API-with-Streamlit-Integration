@@ -8,6 +8,20 @@
 
 
 
+def my_decorator(func):
+    def wrapper():
+        print("Before function execution")
+        func()
+        print("After function execution")
+    return wrapper
+
+@my_decorator
+def greet():
+    print("Hello, Welcome to Python!")
+
+
+greet()
+
 def m(x):
   for i in range(x):
     yield f":-) {i}"
