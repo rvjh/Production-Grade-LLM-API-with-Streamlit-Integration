@@ -7,6 +7,11 @@
 
 
 
+
+def m(x):
+  return x[::-1]
+m('djbjdwbldwb')
+
 ## decorator - kind of function which modifies or extends a function without changing its original code
 
 def my_decorator(func):
