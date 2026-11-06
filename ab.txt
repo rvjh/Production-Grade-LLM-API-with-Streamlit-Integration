@@ -8,6 +8,13 @@
 
 
 
+def m(x):
+  for i in range(x):
+    yield f":-) {i}"
+
+for i in m(10):
+  print(i)
+
 response = {
     "open_ai": {
         "gpt3.5": {"total_token": 30, "cost": 4},
