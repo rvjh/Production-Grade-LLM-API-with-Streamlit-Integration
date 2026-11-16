@@ -5,6 +5,9 @@
 
 
 
+def m(x):
+  return x[::-1]
+m('lnclkwencwn')
 
 ## give me one code for decorator
 def my_decorator(func):
