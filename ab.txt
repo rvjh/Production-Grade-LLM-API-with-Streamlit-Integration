@@ -6,6 +6,14 @@
 
 
 
+## generator
+
+def m(x):
+  for i in range(x):
+    yield f":- {i}"
+
+for i in m(10):
+  print(i)
 
 response = {
     "open_ai": {
