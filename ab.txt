@@ -5,6 +5,10 @@
 
 
 
+def m(x):
+  return x[::-1]
+m('bclqeblcb')
+
 ## decorator
 
 def my_decorator(func):
